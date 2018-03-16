@@ -1,0 +1,33 @@
+// ==== Font Families =========================================================
+
+@import url(
+'https://fonts.googleapis.com/css?family=Lato:300,400,700|Open+Sans:300,400,700'
+);
+
+$primary-font: 'Open Sans', sans-serif; //primary text font
+$heading-font: 'Lato', sans-serif; //heading text font
+
+// ==== Font Sizes ============================================================
+
+$heading-1-size: 3.157em; //h1 font size
+$heading-2-size: 2.369em; //h2 font size
+$heading-3-size: 1.777em; //h3 font size
+$heading-4-size: 1.333em; //h4 font size
+$paragraph: 1em; //primary font size
+$small-paragraph: 0.75em; //small font size
+$leagal-paragraph: 0.563em; //super small size
+
+// ==== Font Weights ==========================================================
+
+$light-weight: 300; //light font weight
+$primary-weight: 400; //primary font weight
+$heavy-weight: 700; //bold font weight
+
+// == Letter Spacing ==========================================================
+
+$primary-spacing: 0.03em; //primary letter spacing
+$heading-spacing: 0.06em; //heading letter spacing
+
+// == Leading =================================================================
+
+$primary-leading: 1.5em; //primary leading 
