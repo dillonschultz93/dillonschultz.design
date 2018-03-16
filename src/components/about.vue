@@ -111,13 +111,13 @@ export default {
     justify-content: center;
   }
   .icon {
-    height: 1em;
+    height: $paragraph;
     margin-right: 15px;
   }
   .info{
     color: $primary-shade;
     font-family: $primary-font;
-    font-size: 1em;
+    font-size: $paragraph;
     font-weight: $light-weight;
     line-height: $primary-leading;
     text-decoration: none;
