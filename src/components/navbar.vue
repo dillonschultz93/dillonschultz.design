@@ -8,7 +8,7 @@
         <router-link :to="{ name: 'about'}">
           <li id="about">About</li>
         </router-link>
-        <router-link :to="{ name: '', params: {} }">
+        <router-link :to="{ name: 'portfolio'}">
           <li id="portfolio">Portfolio</li>
         </router-link>
         <router-link :to="{ name: '', params: {} }">
