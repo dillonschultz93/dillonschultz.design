@@ -27,7 +27,7 @@ export default new Router({
       component: Portfolio,
     },
     {
-      path: '/politivue',
+      path: '/portfolio/politivue',
       name: 'politivue',
       component: PolitiVue,
     },

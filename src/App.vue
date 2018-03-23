@@ -30,7 +30,7 @@ export default {
   }
   // ANIMATIONS
   .fade-enter-active, .fade-leave-active {
-    transition: opacity 1s, transform 1s;
+    transition: opacity 0.55s, transform 0.60s;
   }
   .fade-enter, .fade-leave-to {
     opacity: 0;

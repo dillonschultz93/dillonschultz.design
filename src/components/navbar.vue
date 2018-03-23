@@ -11,9 +11,6 @@
         <router-link :to="{ name: 'portfolio'}">
           <li id="portfolio">Portfolio</li>
         </router-link>
-        <router-link :to="{ name: '', params: {} }">
-          <li id="contact">Contact</li>
-        </router-link>
       </ul>
     </div>
   </div>
@@ -56,9 +53,52 @@ export default {
       font-family: $heading-font;
       font-size: $heading-4-size;
     }
+    #portfolio{
+      margin-right: 0;
+    }
+  }
+  #about:hover{
+    color: $primary-shade-2;
+    transition: color 0.3s;
+  }
+  #about:active{
+    color: $primary-shade-2;
+  }
+  #portfolio:hover{
+    color: $primary-shade-2;
+    transition: color 0.3s;
   }
   #logo {
     width: 50px;
     height: 50px;
+  }
+  // ==== Media queries =======================================================
+  @media only screen and (max-width: 1199px){
+    #navbar{
+      lost-center: 980px flex;
+      padding: 0 30px;
+    }
+  }
+  @media only screen and (max-width: 400px){
+    #nav-links{
+      li{
+        font-size: $paragraph;
+        margin-left: 8px;
+        margin-right: 8px;
+      }
+      #portfolio{
+        margin-right: 0;
+      }
+    }
+    #logo{
+      width: 35px;
+      height: 35px;
+    }
+  }
+  @media only screen and (max-width: 320px){
+    #navbar{
+      lost-center: 320px flex;
+      padding: 0 20px;
+    }
   }
 </style>

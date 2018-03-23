@@ -28,9 +28,8 @@ export default {
         {
           portfolio_name: 'PolitiVue',
           portfolio_type: 'Front-End',
-          description: `PolitiVue is a simple app that displays local and federal
-          government officials, their party affiliation, contact information,
-          social media accounts, and where their offices are located.`,
+          description: `A simple app that displays local and federal
+          government officials, their party affiliation, and their contact information.`,
           image: 'politivue',
           route: 'politivue',
         },
@@ -44,7 +43,7 @@ export default {
         {
           portfolio_name: 'ReelVue',
           portfolio_type: 'Front-End',
-          description: `ReelVue is a  web app that  provides information to movie
+          description: `A web app that provides information to movie
           fans regarding their favorite movies and movies that are currently
           playing in theaters`,
           image: 'ReelVue',
@@ -127,7 +126,8 @@ export default {
   }
   .image-container{
     position: relative;
-    .content-overlay{
+    &:before{
+      content: '';
       background: rgba(88,124,163,0.85);
       position: absolute;
       height: 99%;
@@ -140,9 +140,11 @@ export default {
       transition: all 0.4s ease-in-out 0s;
       border-radius: 10px;
     }
-  }
-  .image-container:hover .content-overlay{
-    opacity: 1;
+    &:hover{
+      &:before{
+        opacity: 1;
+      }
+    }
   }
   .info-container{
     color: $secondary-color;
@@ -152,8 +154,8 @@ export default {
     top: 50%;
     left: 50%;
     opacity: 0;
-    transform: translate(-50%, -50%);
-    transition: all 0.3s ease-in-out 0s;
+    transform: translate3d(-50%, -50%, 0);
+    transition: all cubic-bezier(.62,.28,.23,.99) 0.60s;
     border-radius: 10px;
     .project-name{
       font-family: $primary-font;
