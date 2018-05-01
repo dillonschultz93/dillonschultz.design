@@ -26,6 +26,14 @@ export default {
     return {
       portfolio_items: [
         {
+          portfolio_name: 'Momento',
+          portfolio_type: 'Front-End',
+          description: `A micro social network that allows users to 
+          upload pictures to online albums.`,
+          image: 'politivue',
+          route: 'momento',
+        },
+        {
           portfolio_name: 'PolitiVue',
           portfolio_type: 'Front-End',
           description: `A simple app that displays local and federal
@@ -38,7 +46,7 @@ export default {
           portfolio_type: 'Front-End',
           description: 'The process and design of this very portfolio website.',
           image: 'portfolio',
-          route: '',
+          route: 'personal',
         },
         {
           portfolio_name: 'ReelVue',
@@ -47,16 +55,7 @@ export default {
           fans regarding their favorite movies and movies that are currently
           playing in theaters`,
           image: 'ReelVue',
-          route: '',
-        },
-        {
-          portfolio_name: 'Center Pride',
-          portfolio_type: 'Graphic Design',
-          description: `A series of posters and flyers promoting a Pride Week event
-          at hosted in the Arcadia housing community, located on Arizona State's 
-          Tempe location.`,
-          image: 'center-pride',
-          route: '',
+          route: 'reelvue',
         },
         {
           portfolio_name: 'Editorial Design',
@@ -64,7 +63,7 @@ export default {
           description: `A compilation of various layouts designs for single page
           use, or for full publications.`,
           image: 'editorial',
-          route: '',
+          route: 'editorial',
         },
         {
           portfolio_name: 'Illustrations',
@@ -72,7 +71,7 @@ export default {
           description: `A compilation of various illustrations I have done over
           the years.`,
           image: 'illustration',
-          route: '',
+          route: 'illustrations',
         },
       ],
     };
@@ -200,5 +199,28 @@ export default {
   }
   .fadeIn-enter, .fadeIn-leave-to {
     opacity: 0;
+  }
+  //==== Media Queries ========================================================
+  @media only screen and (max-width: 1199px){
+    #portfolio{
+      lost-center: 980px;
+      padding: 0 30px;
+      margin-top: 8vh;
+    }
+  }
+  @media only screen and (max-width: 800px){
+    .portfolio-container{
+      lost-column: 1/2;
+    }
+  }
+  @media only screen and (max-width: 480px){
+    .portfolio-container{
+      lost-column: 1/1;
+    }
+    .heading{
+      font-size: $heading-2-size;
+      text-align: center;
+      margin-bottom: 40px;
+    }
   }
 </style>
