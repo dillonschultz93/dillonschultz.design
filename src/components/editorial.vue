@@ -1,9 +1,9 @@
 <template>
-  <div id="politivue">
+  <div id="editorial">
     <div class="component-container">
       <div class="top-section">
         <div class="project-title">
-          <h1>PolitiVue</h1>
+          <h1>Editorial Design</h1>
           <!-- <router-link :to="{ name: 'portfolio'}" class="back">
             back
           </router-link> -->
@@ -20,18 +20,18 @@
           </p>
           <div class="project-info">
             <div class="tags">
-              <p>Front-End</p>
+              <p>Graphic Design</p>
               <p>&bull;</p>
-              <p>Vue.js</p>
+              <p>Print</p>
             </div>
-            <div class="links">
+            <!-- <div class="links">
               <a href="https://github.com/dillonschultz93/PolitiVue" target="_blank">
                 <img src="../assets/svg-icons/github.svg" alt="github logo" class="icon">
               </a>
               <a href="https://politivue.herokuapp.com/" target="_blank">
                 <img src="../assets/svg-icons/globe.svg" alt="globe icon" class="icon">
               </a>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -59,7 +59,7 @@
 
 <script>
 export default {
-  name: 'politivue',
+  name: 'editorial',
 };
 </script>
 
@@ -137,7 +137,7 @@ export default {
 
   //==== Media Queries ========================================================
   @media only screen and (max-width: 1199px){
-    #politivue {
+    #editorial {
       lost-center: 980px;
       padding: 0 30px;
     }

@@ -1,12 +1,12 @@
 <template>
-  <div id="politivue">
+  <div id="momento">
     <div class="component-container">
       <div class="top-section">
         <div class="project-title">
-          <h1>PolitiVue</h1>
-          <!-- <router-link :to="{ name: 'portfolio'}" class="back">
+          <h1>Momento</h1>
+          <router-link :to="{ name: 'portfolio'}" class="back">
             back
-          </router-link> -->
+          </router-link>
         </div>
         <div class="project-description">
           <p class="paragraph">
@@ -22,13 +22,15 @@
             <div class="tags">
               <p>Front-End</p>
               <p>&bull;</p>
-              <p>Vue.js</p>
+              <p>UI</p>
+              <p>&bull;</p>
+              <p>React</p>
             </div>
             <div class="links">
-              <a href="https://github.com/dillonschultz93/PolitiVue" target="_blank">
+              <a href="https://github.com/CalebHarsh/Momento" target="_blank">
                 <img src="../assets/svg-icons/github.svg" alt="github logo" class="icon">
               </a>
-              <a href="https://politivue.herokuapp.com/" target="_blank">
+              <a href="https://momento-sp.herokuapp.com/" target="_blank">
                 <img src="../assets/svg-icons/globe.svg" alt="globe icon" class="icon">
               </a>
             </div>
@@ -38,7 +40,7 @@
       <div class="main-section">
         <hr>
         <div class="section-title">
-          <h3 class="title">Low Fidelity Wireframes</h3>
+          <h3 class="title">Low Fidelity Comp</h3>
         </div>
         <div class="content-container">
           <img src="../assets/politivue-mock.png" class="project-image">
@@ -46,7 +48,7 @@
         </div>
         <hr>
         <div class="section-title">
-          <h3 class="title">High Fidelity Comps</h3>
+          <h3 class="title">High Fidelity Comp</h3>
         </div>
         <div class="content-container">
           <img src="../assets/politivue-mock.png" class="project-image">
@@ -59,7 +61,7 @@
 
 <script>
 export default {
-  name: 'politivue',
+  name: 'momento',
 };
 </script>
 
@@ -127,17 +129,16 @@ export default {
     .content-container{
       lost-column: 1/1;
       margin-top: 10vh;
-      margin-bottom: 10vh;
-    }
-    .project-image{
-      lost-column: 1/2;
-      // width: 100%;
+      .project-image{
+        lost-column: 1/2;
+        // width: 100%;
+      }
     }
   }
-
+  
   //==== Media Queries ========================================================
   @media only screen and (max-width: 1199px){
-    #politivue {
+    #momento {
       lost-center: 980px;
       padding: 0 30px;
     }

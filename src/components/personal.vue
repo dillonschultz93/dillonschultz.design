@@ -1,9 +1,9 @@
 <template>
-  <div id="politivue">
+  <div id="personal">
     <div class="component-container">
       <div class="top-section">
         <div class="project-title">
-          <h1>PolitiVue</h1>
+          <h1>Personal Portfolio</h1>
           <!-- <router-link :to="{ name: 'portfolio'}" class="back">
             back
           </router-link> -->
@@ -20,8 +20,6 @@
           </p>
           <div class="project-info">
             <div class="tags">
-              <p>Front-End</p>
-              <p>&bull;</p>
               <p>Vue.js</p>
             </div>
             <div class="links">
@@ -59,7 +57,7 @@
 
 <script>
 export default {
-  name: 'politivue',
+  name: 'personal',
 };
 </script>
 
@@ -137,7 +135,7 @@ export default {
 
   //==== Media Queries ========================================================
   @media only screen and (max-width: 1199px){
-    #politivue {
+    #personal {
       lost-center: 980px;
       padding: 0 30px;
     }

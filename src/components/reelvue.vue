@@ -1,9 +1,9 @@
 <template>
-  <div id="politivue">
+  <div id="reelvue">
     <div class="component-container">
       <div class="top-section">
         <div class="project-title">
-          <h1>PolitiVue</h1>
+          <h1>ReelVue</h1>
           <!-- <router-link :to="{ name: 'portfolio'}" class="back">
             back
           </router-link> -->
@@ -22,7 +22,7 @@
             <div class="tags">
               <p>Front-End</p>
               <p>&bull;</p>
-              <p>Vue.js</p>
+              <p>Skeleton Framework</p>
             </div>
             <div class="links">
               <a href="https://github.com/dillonschultz93/PolitiVue" target="_blank">
@@ -59,7 +59,7 @@
 
 <script>
 export default {
-  name: 'politivue',
+  name: 'reelvue',
 };
 </script>
 
@@ -137,7 +137,7 @@ export default {
 
   //==== Media Queries ========================================================
   @media only screen and (max-width: 1199px){
-    #politivue {
+    #reelvue {
       lost-center: 980px;
       padding: 0 30px;
     }
