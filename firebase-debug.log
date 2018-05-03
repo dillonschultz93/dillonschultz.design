@@ -1,0 +1,101 @@
+[debug] [2018-05-03T01:09:37.304Z] ----------------------------------------------------------------------
+[debug] [2018-05-03T01:09:37.306Z] Command:       /usr/local/Cellar/node/9.3.0_1/bin/node /usr/local/bin/firebase deploy
+[debug] [2018-05-03T01:09:37.306Z] CLI Version:   3.17.6
+[debug] [2018-05-03T01:09:37.306Z] Platform:      darwin
+[debug] [2018-05-03T01:09:37.306Z] Node Version:  v9.3.0
+[debug] [2018-05-03T01:09:37.306Z] Time:          Wed May 02 2018 18:09:37 GMT-0700 (MST)
+[debug] [2018-05-03T01:09:37.306Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-05-03T01:09:37.319Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-05-03T01:09:37.319Z] > authorizing via signed-in user
+[debug] [2018-05-03T01:09:37.320Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-05-03T01:09:37.321Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/Lx_q9yr_V3d0T0dr35RY9gowCRz2OdsqsK3Azvb1_Mo',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Wed May 02 2018 18:09:37 GMT-0700 (MST)
+[debug] [2018-05-03T01:09:37.706Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-03T01:09:37.720Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/portfolio-website-b9851  
+  
+ Wed May 02 2018 18:09:37 GMT-0700 (MST)
+[debug] [2018-05-03T01:09:38.400Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-03T01:09:38.401Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/portfolio-website-b9851/tokens  
+  
+ Wed May 02 2018 18:09:38 GMT-0700 (MST)
+[debug] [2018-05-03T01:09:38.878Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'portfolio-website-b9851'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing ./dist directory for upload...
+[debug] [2018-05-03T01:09:44.364Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/portfolio-website-b9851/uploads/-LBYY1s5_CJj1DzpqETH?fileCount=41&message=  
+  
+ Wed May 02 2018 18:09:44 GMT-0700 (MST)
+[debug] [2018-05-03T01:23:04.504Z] ----------------------------------------------------------------------
+[debug] [2018-05-03T01:23:04.506Z] Command:       /usr/local/Cellar/node/9.3.0_1/bin/node /usr/local/bin/firebase deploy
+[debug] [2018-05-03T01:23:04.506Z] CLI Version:   3.17.6
+[debug] [2018-05-03T01:23:04.507Z] Platform:      darwin
+[debug] [2018-05-03T01:23:04.507Z] Node Version:  v9.3.0
+[debug] [2018-05-03T01:23:04.507Z] Time:          Wed May 02 2018 18:23:04 GMT-0700 (MST)
+[debug] [2018-05-03T01:23:04.507Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-05-03T01:23:04.516Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-05-03T01:23:04.517Z] > authorizing via signed-in user
+[debug] [2018-05-03T01:23:04.519Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/portfolio-website-b9851  
+  
+ Wed May 02 2018 18:23:04 GMT-0700 (MST)
+[debug] [2018-05-03T01:23:05.641Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-03T01:23:05.641Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/portfolio-website-b9851/tokens  
+  
+ Wed May 02 2018 18:23:05 GMT-0700 (MST)
+[debug] [2018-05-03T01:23:06.257Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'portfolio-website-b9851'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing ./dist directory for upload...
+[debug] [2018-05-03T01:23:13.382Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/portfolio-website-b9851/uploads/-LBYa7DWtBeRkgbiw6bB?fileCount=52&message=  
+  
+ Wed May 02 2018 18:23:13 GMT-0700 (MST)
+[debug] [2018-05-03T02:12:29.598Z] Error: write EPIPE
+    at _errnoException (util.js:999:13)
+    at WriteWrap.afterWrite [as oncomplete] (net.js:883:14)
+[error] 
+[error] Error: Server Error. write EPIPE
+[debug] [2018-05-03T02:12:39.604Z] ----------------------------------------------------------------------
+[debug] [2018-05-03T02:12:39.606Z] Command:       /usr/local/Cellar/node/9.3.0_1/bin/node /usr/local/bin/firebase deploy
+[debug] [2018-05-03T02:12:39.606Z] CLI Version:   3.17.6
+[debug] [2018-05-03T02:12:39.606Z] Platform:      darwin
+[debug] [2018-05-03T02:12:39.606Z] Node Version:  v9.3.0
+[debug] [2018-05-03T02:12:39.607Z] Time:          Wed May 02 2018 19:12:39 GMT-0700 (MST)
+[debug] [2018-05-03T02:12:39.607Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-05-03T02:12:39.616Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-05-03T02:12:39.617Z] > authorizing via signed-in user
+[debug] [2018-05-03T02:12:39.618Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-05-03T02:12:39.618Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/Lx_q9yr_V3d0T0dr35RY9gowCRz2OdsqsK3Azvb1_Mo',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Wed May 02 2018 19:12:39 GMT-0700 (MST)
+[debug] [2018-05-03T02:12:39.990Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-03T02:12:40.008Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/portfolio-website-b9851  
+  
+ Wed May 02 2018 19:12:40 GMT-0700 (MST)
+[debug] [2018-05-03T02:12:40.667Z] <<< HTTP RESPONSE 200
+[debug] [2018-05-03T02:12:40.668Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/portfolio-website-b9851/tokens  
+  
+ Wed May 02 2018 19:12:40 GMT-0700 (MST)
+[debug] [2018-05-03T02:12:41.172Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'portfolio-website-b9851'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing ./dist directory for upload...
+[debug] [2018-05-03T02:12:47.626Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/portfolio-website-b9851/uploads/-LBYlTJkNVG_95axfhJv?fileCount=52&message=  
+  
+ Wed May 02 2018 19:12:47 GMT-0700 (MST)

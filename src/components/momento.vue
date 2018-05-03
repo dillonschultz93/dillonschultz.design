@@ -4,9 +4,6 @@
       <div class="top-section">
         <div class="project-title">
           <h1>Momento</h1>
-          <router-link :to="{ name: 'portfolio'}" class="back">
-            back
-          </router-link>
         </div>
         <div class="project-description">
           <p class="paragraph">
@@ -95,7 +92,7 @@ export default {
       display: flex;
       lost-column: 1/1;
       .tags{
-        lost-column: 1/2;
+        lost-column: 1/1;
         display: flex;
         p{
           margin-right: 15px;
@@ -135,7 +132,7 @@ export default {
       }
     }
   }
-  
+
   //==== Media Queries ========================================================
   @media only screen and (max-width: 1199px){
     #momento {

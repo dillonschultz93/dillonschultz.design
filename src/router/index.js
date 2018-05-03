@@ -37,29 +37,37 @@ export default new Router({
       component: PolitiVue,
     },
     {
-      path: 'portfolio/momento',
+      path: '/portfolio/momento',
       name: 'momento',
       component: Momento,
     },
     {
-      path: 'portfolio/personal-portfolio',
+      path: '/portfolio/personal-portfolio',
       name: 'personal',
       component: Personal,
     },
     {
-      path: 'portfolio/reelvue',
+      path: '/portfolio/reelvue',
       name: 'reelvue',
       component: ReelVue,
     },
     {
-      path: 'portfolio/editorial-design',
+      path: '/portfolio/editorial-design',
       name: 'editorial',
       component: Editorial,
     },
     {
-      path: 'portfolio/illustrations',
+      path: '/portfolio/illustrations',
       name: 'illustrations',
       component: Illustrations,
     },
   ],
+  /* eslint no-unused-vars: 0 */
+  scrollBehavior(to, from, savedPosition) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve({ x: 0, y: 0 });
+      }, 500);
+    });
+  },
 });

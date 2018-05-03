@@ -4,19 +4,14 @@
       <div class="top-section">
         <div class="project-title">
           <h1>Editorial Design</h1>
-          <!-- <router-link :to="{ name: 'portfolio'}" class="back">
-            back
-          </router-link> -->
         </div>
         <div class="project-description">
           <p class="paragraph">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-            id est laborum.
+            Below is a sampling of my editorial and layout designs from the past
+            few years. Coming into my latest role as designer for the Tucson-based
+            <em>Well Being Journal</em>, I integrated my style with the
+            established history of the publication. In design I value clarity
+            and simplicity, bringing these qualities into each of my layouts.
           </p>
           <div class="project-info">
             <div class="tags">
@@ -24,33 +19,37 @@
               <p>&bull;</p>
               <p>Print</p>
             </div>
-            <!-- <div class="links">
-              <a href="https://github.com/dillonschultz93/PolitiVue" target="_blank">
-                <img src="../assets/svg-icons/github.svg" alt="github logo" class="icon">
-              </a>
-              <a href="https://politivue.herokuapp.com/" target="_blank">
-                <img src="../assets/svg-icons/globe.svg" alt="globe icon" class="icon">
-              </a>
-            </div> -->
           </div>
         </div>
       </div>
       <div class="main-section">
         <hr>
         <div class="section-title">
-          <h3 class="title">Low Fidelity Wireframes</h3>
+          <h3 class="title">Well Being Journal</h3>
         </div>
         <div class="content-container">
-          <img src="../assets/politivue-mock.png" class="project-image">
-          <img src="../assets/politivue-mock.png" class="project-image">
+          <img src="../assets/wbj1.png" class="project-image">
+          <img src="../assets/wbj2.png" class="project-image">
+          <img src="../assets/wbj3.png" class="project-image">
+          <img src="../assets/wbj4.png" class="project-image">
         </div>
         <hr>
         <div class="section-title">
-          <h3 class="title">High Fidelity Comps</h3>
+          <h3 class="title">Person, Place, Thing</h3>
         </div>
         <div class="content-container">
-          <img src="../assets/politivue-mock.png" class="project-image">
-          <img src="../assets/politivue-mock.png" class="project-image">
+          <img src="../assets/layout1.png" class="project-image">
+          <img src="../assets/layout2.png" class="project-image">
+          <img src="../assets/layout3.png" class="project-image">
+        </div>
+        <hr>
+        <div class="section-title">
+          <h3 class="title">Derivation</h3>
+        </div>
+        <div class="content-container">
+          <img src="../assets/derivation1.png" class="project-image">
+          <img src="../assets/derivation2.png" class="project-image">
+          <img src="../assets/derivation3.png" class="project-image">
         </div>
       </div>
     </div>
@@ -93,7 +92,7 @@ export default {
       display: flex;
       lost-column: 1/1;
       .tags{
-        lost-column: 1/2;
+        lost-column: 1/1;
         display: flex;
         p{
           margin-right: 15px;
@@ -130,7 +129,8 @@ export default {
       margin-bottom: 10vh;
     }
     .project-image{
-      lost-column: 1/2;
+      lost-column: 1/1;
+      margin-bottom: 24px;
       // width: 100%;
     }
   }

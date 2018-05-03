@@ -26,11 +26,18 @@ export default {
     return {
       portfolio_items: [
         {
+          portfolio_name: 'Daily UI',
+          portfolio_type: 'Front-End',
+          description: 'Examples of my contribution to the Daily UI project',
+          image: 'dailyui',
+          route: 'personal',
+        },
+        {
           portfolio_name: 'Momento',
           portfolio_type: 'Front-End',
           description: `A micro social network that allows users to 
           upload pictures to online albums.`,
-          image: 'politivue',
+          image: 'momento',
           route: 'momento',
         },
         {
@@ -40,13 +47,6 @@ export default {
           government officials, their party affiliation, and their contact information.`,
           image: 'politivue',
           route: 'politivue',
-        },
-        {
-          portfolio_name: 'Personal Portfolio',
-          portfolio_type: 'Front-End',
-          description: 'The process and design of this very portfolio website.',
-          image: 'portfolio',
-          route: 'personal',
         },
         {
           portfolio_name: 'ReelVue',

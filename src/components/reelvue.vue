@@ -93,7 +93,7 @@ export default {
       display: flex;
       lost-column: 1/1;
       .tags{
-        lost-column: 1/2;
+        lost-column: 1/1;
         display: flex;
         p{
           margin-right: 15px;
@@ -130,8 +130,8 @@ export default {
       margin-bottom: 10vh;
     }
     .project-image{
-      lost-column: 1/2;
-      // width: 100%;
+      lost-column: 1/1;
+      margin-bottom: 24px;
     }
   }
 

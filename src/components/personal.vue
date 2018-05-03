@@ -1,9 +1,9 @@
 <template>
-  <div id="personal">
+  <div id="dailyui">
     <div class="component-container">
       <div class="top-section">
         <div class="project-title">
-          <h1>Personal Portfolio</h1>
+          <h1>Daily UI</h1>
           <!-- <router-link :to="{ name: 'portfolio'}" class="back">
             back
           </router-link> -->
@@ -20,7 +20,9 @@
           </p>
           <div class="project-info">
             <div class="tags">
-              <p>Vue.js</p>
+              <p>UI</p>
+              <p>&bull;</p>
+              <p>Design</p>
             </div>
             <div class="links">
               <a href="https://github.com/dillonschultz93/PolitiVue" target="_blank">
@@ -57,7 +59,7 @@
 
 <script>
 export default {
-  name: 'personal',
+  name: 'dailyui',
 };
 </script>
 
@@ -128,14 +130,14 @@ export default {
       margin-bottom: 10vh;
     }
     .project-image{
-      lost-column: 1/2;
-      // width: 100%;
+      lost-column: 1/1;
+      margin-bottom: 24px;
     }
   }
 
   //==== Media Queries ========================================================
   @media only screen and (max-width: 1199px){
-    #personal {
+    #dailyui {
       lost-center: 980px;
       padding: 0 30px;
     }
