@@ -10,13 +10,12 @@
         </div>
         <div class="project-description">
           <p class="paragraph">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
-            id est laborum.
+            Vector illustrations drew me to graphic design initially. As such,
+            my projects in that vein have influenced my personal aesthetic the
+            most. I appreciate a seemingly minimalist approach that displays a
+            skillful rendering of the object drawn. Projects displayed here
+            include illustrations from a personal Hero’s Journey book I created
+            as well as a daily iconography challenge.
           </p>
           <div class="project-info">
             <div class="tags">
@@ -24,33 +23,31 @@
               <p>&bull;</p>
               <p>Vector Illustrations</p>
             </div>
-            <!-- <div class="links">
-              <a href="https://github.com/dillonschultz93/PolitiVue" target="_blank">
-                <img src="../assets/svg-icons/github.svg" alt="github logo" class="icon">
-              </a>
-              <a href="https://politivue.herokuapp.com/" target="_blank">
-                <img src="../assets/svg-icons/globe.svg" alt="globe icon" class="icon">
-              </a>
-            </div> -->
           </div>
         </div>
       </div>
       <div class="main-section">
         <hr>
         <div class="section-title">
-          <h3 class="title">Low Fidelity Wireframes</h3>
+          <h3 class="title">Icon per Day</h3>
         </div>
         <div class="content-container">
-          <img src="../assets/politivue-mock.png" class="project-image">
-          <img src="../assets/politivue-mock.png" class="project-image">
+          <img src="../assets/Day-1-icon-.jpg" class="project-image">
+          <img src="../assets/Day-3-icon-.jpg" class="project-image">
+          <img src="../assets/Day-4-icon-.jpg" class="project-image">
+          <img src="../assets/Day-7-icon-.jpg" class="project-image">
+          <img src="../assets/Day-14-icon-.jpg" class="project-image">
+          <img src="../assets/Day-17-icon-.jpg" class="project-image">
         </div>
         <hr>
         <div class="section-title">
-          <h3 class="title">High Fidelity Comps</h3>
+          <h3 class="title">Miscellaneous Illustrations</h3>
         </div>
         <div class="content-container">
-          <img src="../assets/politivue-mock.png" class="project-image">
-          <img src="../assets/politivue-mock.png" class="project-image">
+          <img src="../assets/page-1.jpg" class="project-image">
+          <img src="../assets/page-2.jpg" class="project-image">
+          <img src="../assets/page-5.jpg" class="project-image">
+          <img src="../assets/page-6.jpg" class="project-image">
         </div>
       </div>
     </div>
@@ -93,7 +90,7 @@ export default {
       display: flex;
       lost-column: 1/1;
       .tags{
-        lost-column: 1/2;
+        lost-column: 1/1;
         display: flex;
         p{
           margin-right: 15px;
@@ -130,8 +127,8 @@ export default {
       margin-bottom: 10vh;
     }
     .project-image{
-      lost-column: 1/2;
-      // width: 100%;
+      lost-column: 1/3;
+      margin-bottom: 24px;
     }
   }
 
