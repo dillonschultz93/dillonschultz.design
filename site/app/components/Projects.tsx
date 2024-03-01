@@ -9,7 +9,7 @@ export default function Projects({ posts }: { posts: SanityDocument[] }) {
         posts.map((post) => (
           <div key={post._id} className="project flex flex-col gap-6">
             <div className="project-info flex flex-col gap-2 items-start">
-              <Link to={post.slug.current} className="title-lg link">
+              <Link to={`/projects/${post.slug.current}`} className="title-lg link">
                 { post.title }
               </Link>
               <div className="flex">
