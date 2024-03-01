@@ -47,10 +47,10 @@ export default function Index() {
           🍕 Pizza Enthusiast
         </h3>
       </div>
-      <div className="flex flex-col gap-y-6 pt-24 pb-12 md:col-span-6 md:col-start-6 md:gap-y-24 lg:col-span-5 lg:col-start-7 md:pt-0">
-        <h2 className="display-sm">
+      <div className="inline-flex flex-col gap-y-6 pt-24 pb-12 md:col-span-6 md:col-start-6 md:gap-y-24 lg:col-span-5 lg:col-start-7 md:pt-0">
+        <Link to="/projects" className="display-sm link">
           Wanna see what I&apos;ve done?
-        </h2>
+        </Link>
         <Projects posts={data} />
       </div>
     </motion.section>
