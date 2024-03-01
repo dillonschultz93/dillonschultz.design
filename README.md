@@ -24,7 +24,11 @@ cd sanity
 ```bash
 npm install
 ```
-3. Run the development server
+3. Create a Sanity project (this will require a Sanity account)
+```bash
+npm create sanity@latest -- --create-project "<project name>" --dataset production
+```
+4. Run the development server
 ```bash
 npm run dev
 ```
