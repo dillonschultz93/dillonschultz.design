@@ -14,9 +14,9 @@ export default function Projects({ posts }: { posts: SanityDocument[] }) {
               </Link>
               <div className="flex">
                 <span>
-                  { new Date(post._createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }
+                  { new Date(post.publishedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }
                 </span>
-                { post.tags.length > 0 ? (
+                { post.tags && post.tags.length > 0 ? (
                   <span>
                     &nbsp;|&nbsp;
                     { post.tags.map((tag: string, index: number) => (

@@ -7,7 +7,7 @@ import { projectId, dataset } from "../sanity/projectDetails";
 
 const builder = imageUrlBuilder({ projectId, dataset });
 
-// Barebones lazy-loaded image component
+// Bare-bones lazy-loaded image component
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const SampleImageComponent = ({ value, isInline }: { value: any, isInline: boolean }) => {
   const {width, height} = getImageDimensions(value)
@@ -42,10 +42,10 @@ const components = {
 }
 
 export default function Project({ post }: { post: SanityDocument }) {
-  const { title, tags, _createdAt, description, body, mainImage } = post;
+  const { title, tags, publishedAt, description, body, mainImage } = post;
 
   // Parse the date into a human-readable format
-  const date = new Date(_createdAt);
+  const date = new Date(publishedAt);
   const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
   return (
@@ -71,7 +71,7 @@ export default function Project({ post }: { post: SanityDocument }) {
                 <span>
                   { new Date(formattedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }
                 </span>
-                { tags.length > 0 ? (
+                { tags && tags.length > 0 ? (
                   <span>
                     &nbsp;|&nbsp;
                     { tags.map((tag: string, index: number) => (
