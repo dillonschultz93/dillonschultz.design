@@ -48,9 +48,9 @@ export default function Index() {
         </h3>
       </div>
       <div className="inline-flex flex-col gap-y-6 pt-24 pb-12 md:col-span-6 md:col-start-6 md:gap-y-24 lg:col-span-5 lg:col-start-7 md:pt-0">
-        <Link to="/projects" className="display-sm link">
+        <h3 className="display-sm">
           Wanna see what I&apos;ve done?
-        </Link>
+        </h3>
         <Projects posts={data} />
       </div>
     </motion.section>
