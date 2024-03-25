@@ -54,7 +54,7 @@ export default function Project({ post }: { post: SanityDocument }) {
           <img
             src={builder.image(mainImage).quality(100).url()}
             alt={title}
-            className="banner-image col-span-full max-h-72 object-cover w-full md:col-start-6 lg:col-start-5"
+            className="banner-image col-span-full object-cover mb-8 md:mb-16 w-full md:col-start-6 lg:col-start-5"
           />
         ) : null}
       <main className={`flex flex-col gap-y-6 pb-12 ${mainImage ? 'pt-0' : 'pt-48'} md:col-span-6 md:col-start-6 ${mainImage ? 'md:pb-48' : 'md:py-48'} lg:col-span-7 lg:col-start-5`}>

@@ -159,6 +159,10 @@ blockquote {
   border-left: var(--dimension-border-width-lg) solid var(--color-neutral-700);
 }
 
+.banner-image {
+  max-height: 50vh;
+}
+
 /* Components */
 .blob {
   display: block;
