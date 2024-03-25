@@ -41,7 +41,7 @@ export default function Index() {
           Hey, <wbr /><Link className="link" to={'about'}>I&apos;m Dillon!</Link>
         </h1>
         <h3 className="title-lg secondary">
-          📐 UI/UX Designer <a href="https://yummly.com" className="link" target="_blank" rel="noreferrer">@yummly</a><br />
+          📐 UI/UX Designer<br />
           💻 Front End Engineer<br />
           📷 <a href="https://www.instagram.com/dill.schultz/" className="link" target="_blank" rel="noreferrer">Amateur Photographer</a><br />
           🍕 Pizza Enthusiast
