@@ -78,7 +78,7 @@ const SVGStyles = {
 };
 
 const Blob = () => {
-  let noiseStep = 0.005;
+  let noiseStep = 0.0008;
 
   useEffect(() => {
     // Adapted from this article by @georgedoescode:
@@ -145,14 +145,6 @@ const Blob = () => {
     })();
   });
 
-  const onMouseOverHandler = () => {
-    noiseStep = 0.01;
-  };
-
-  const onMouseLeaveHandler = () => {
-    noiseStep = 0.005;
-  };
-
   return (
     <svg viewBox="0 0 200 200" id="blob" style={SVGStyles}>
       <defs>
@@ -169,8 +161,6 @@ const Blob = () => {
         id="manipulated-path"
         d=""
         fill="url('#gradient')"
-        onMouseOver={onMouseOverHandler}
-        onMouseLeave={onMouseLeaveHandler}
       />
     </svg>
   );
