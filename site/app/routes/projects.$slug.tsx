@@ -1,4 +1,4 @@
-import type { LoaderFunctionArgs } from "@remix-run/node";
+import type { LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import type { SanityDocument } from "@sanity/client";
 import { motion } from "framer-motion";
@@ -10,6 +10,17 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
   const {data} = await loadQuery<SanityDocument>(POST_QUERY, params)
 
   return { data };
+};
+
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  console.log(data);
+
+  const { title, description } = (data?.data as SanityDocument) ?? {};
+
+  return [
+    { title: `Dillon Schultz | ${title}` },
+    { name: "description", content: description }
+  ];
 };
 
 export default function Slug() {
