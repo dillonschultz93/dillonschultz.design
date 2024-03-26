@@ -19,11 +19,11 @@ import stylesHref from "../styles/app.css";
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: tailwindHref },
   { rel: "stylesheet", href: stylesHref },
+  { rel: "icon", href: "/favicon.ico" },
   // { rel: "stylesheet", href: darkThemeHref, media: "(prefers-color-scheme: dark)" },
 ];
 
 export const loader = () => {
-  console.log(process.env.SANITY_STUDIO_PROJECT_ID);
   return json({
     ENV: {
       SANITY_STUDIO_PROJECT_ID: process.env.SANITY_STUDIO_PROJECT_ID,
