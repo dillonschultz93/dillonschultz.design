@@ -17,6 +17,8 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 
   return [
     { title: `Dillon Schultz | ${title}` },
+    { property: "og:title", content: title },
+    { property: "og:description", content: description },
     { property: "og:type", content: "article" },
     { property: "og:url", content: `https://dillonschultz.design/projects/${slug.current}` },
     { property: "og:image", content: `https://dillonschultz.design/og-image-${slug.current}.jpg` },
