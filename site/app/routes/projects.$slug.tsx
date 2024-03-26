@@ -13,12 +13,13 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
 };
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
-  console.log(data);
-
-  const { title, description } = (data?.data as SanityDocument) ?? {};
+  const { title, description, slug } = (data?.data as SanityDocument) ?? {};
 
   return [
     { title: `Dillon Schultz | ${title}` },
+    { property: "og:type", content: "article" },
+    { property: "og:url", content: `https://dillonschultz.design/${slug.current}` },
+    { property: "og:image", content: `https://dillonschultz.design/og-image-${slug.current}.jpg` },
     { name: "description", content: description }
   ];
 };

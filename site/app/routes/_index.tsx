@@ -12,6 +12,10 @@ import { POSTS_QUERY } from "../sanity/queries";
 export const meta: MetaFunction = () => {
   return [
     { title: "Dillon Schultz" },
+    { property: "og:title", content: "Dillon Schultz"},
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: "https://dillonschultz.design" },
+    { property: "og:image", content: "https://dillonschultz.design/og-image-index.jpg" },
     { name: "description", content: "The personal portfolio site of Dillon Schultz" },
   ];
 };
