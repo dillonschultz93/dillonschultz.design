@@ -11,6 +11,7 @@ import {
 import { json } from "@remix-run/node";
 import { AnimatePresence } from "framer-motion";
 import Navigation from "./components/Navigation";
+import { SpeedInsights } from "@vercel/speed-insights/remix"
 
 import tailwindHref from "../styles/tailwind.css";
 import stylesHref from "../styles/app.css";
@@ -73,6 +74,7 @@ export default function App() {
         />
         <Scripts />
         <LiveReload />
+        <SpeedInsights />
       </body>
     </html>
   );
