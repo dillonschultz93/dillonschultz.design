@@ -25,7 +25,7 @@ export default function About() {
     >
       <div className="flex flex-col gap-y-6 pb-12 pt-48 md:col-span-6 md:col-start-6 md:py-48 lg:col-span-7 lg:col-start-5">
         <h1 className="display-lg">
-          Hello, I&apos;m Dillon Schultz.
+          Hello, <br/>I&apos;m Dillon Schultz.
         </h1>
         <h3 className="title-lg secondary">
           I&apos;m a UI/UX Designer and Front End Engineer with a particular interest in design systems and component libraries. I strive to bridge the gap between design and engineering 🤓

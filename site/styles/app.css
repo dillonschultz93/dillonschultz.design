@@ -195,7 +195,11 @@ blockquote {
   font-size: var(--typography-body-m-size);
   line-height: var(--typography-body-m-line-height);
   overflow: hidden;
+  white-space: wrap;
   text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
   max-height: 60px;
 }
 

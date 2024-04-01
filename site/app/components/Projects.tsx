@@ -4,10 +4,10 @@ import { Link } from "@remix-run/react";
 
 export default function Projects({ posts }: { posts: SanityDocument[] }) {
   return (
-    <main className="flex flex-col gap-8 mb-12 md:gap-24">
+    <main className="flex flex-col gap-8 mb-12 md:gap-24 min-w-0">
       {posts?.length > 0 ? (
         posts.map((post) => (
-          <div key={post._id} className="project flex flex-col gap-6">
+          <div key={post._id} className="project flex flex-col gap-6 min-w-0">
             <div className="project-info flex flex-col gap-2 items-start">
               <Link to={`/projects/${post.slug.current}`} className="title-lg link">
                 { post.title }

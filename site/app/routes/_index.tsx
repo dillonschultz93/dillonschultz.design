@@ -32,7 +32,7 @@ export default function Index() {
 
   return (
     <motion.section 
-      className="grid grid-cols-1 px-8 md:grid-cols-12 md:px-0 lg:grid-cols-16"
+      className="grid grid-cols-1 px-8 md:grid-cols-12 md:px-0 lg:grid-cols-16 min-w-0"
       initial={{ opacity: 0 }}
       animate={{opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -52,7 +52,7 @@ export default function Index() {
           🍕 Pizza Enthusiast
         </h3>
       </div>
-      <div className="inline-flex flex-col gap-y-6 pt-24 pb-12 md:col-span-6 md:col-start-6 md:gap-y-24 lg:col-span-5 lg:col-start-7 md:pt-0">
+      <div className="inline-flex flex-col gap-y-6 pt-24 pb-12 md:col-span-6 md:col-start-6 md:gap-y-24 lg:col-span-5 lg:col-start-7 md:pt-0 min-w-0">
         <h3 className="display-sm">
           Wanna see what I&apos;ve done?
         </h3>
