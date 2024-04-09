@@ -32,7 +32,7 @@ export default function About() {
         </h3>
         <div className="flex gap-6">
           <LinkButton
-            href="/Dillon-Schultz_Resume.pdf"
+            href="/dillon-schultz_resume.pdf"
             download={true}
             target="_self"
             type="primary"
