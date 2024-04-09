@@ -34,6 +34,7 @@ export default function About() {
           <LinkButton
             href="/Dillon-Schultz_Resume.pdf"
             download={true}
+            target="_self"
             type="primary"
             label="My résumé"
           >
