@@ -43,7 +43,7 @@ export default function About() {
             </svg>
           </LinkButton>
           <LinkButton
-            href="https://linkedin.com/in/dillon-schultz-7a5b2bab"
+            href="https://linkedin.com/in/dillonschultz"
             type="neutral"
             label="My LinkedIn"
           >
