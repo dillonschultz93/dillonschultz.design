@@ -31,7 +31,7 @@ export default function Slug() {
 
   return (
     <motion.article 
-      className="grid grid-cols-1 px-8 md:grid-cols-12 md:px-0 lg:grid-cols-16"
+      className="grid grid-cols-1 px-8 relative md:grid-cols-12 md:px-0 lg:grid-cols-16"
       initial={{ x: '-5%', opacity: 0 }}
       animate={{ x: '0', opacity: 1 }}
       exit={{ x: '-5%',opacity: 0 }}
