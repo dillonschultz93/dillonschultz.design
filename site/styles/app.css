@@ -66,6 +66,13 @@ article p {
   margin-bottom: var(--dimension-space-lg);
 }
 
+article h5 {
+  font-size: var(--typography-title-m-size);
+  line-height: var(--typography-title-m-line-height);
+  margin-bottom: var(--dimension-space-lg);
+  color: var(--color-text-tertiary);
+}
+
 .secondary {
   color: var(--color-text-secondary);
 }
