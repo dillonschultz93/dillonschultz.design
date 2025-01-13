@@ -41,11 +41,11 @@ const components = {
 }
 
 export default function Project({ post }: { post: SanityDocument }) {
-  const { title, tags, publishedAt, description, body, mainImage } = post;
+  const { title, description, body, mainImage } = post;
 
   // Parse the date into a human-readable format
-  const date = new Date(publishedAt);
-  const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  // const date = new Date(publishedAt);
+  // const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
   return (
     <>
@@ -67,20 +67,6 @@ export default function Project({ post }: { post: SanityDocument }) {
                 {description}
               </h2>
               <div className="flex">
-                <span>
-                  { new Date(formattedDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }
-                </span>
-                { tags && tags.length > 0 ? (
-                  <span>
-                    &nbsp;|&nbsp;
-                    { tags.map((tag: string, index: number) => (
-                      <span key={index} className="tag">
-                        { tag }
-                        { index < tags.length - 1 ? ', ' : '' }
-                      </span>
-                    )) }
-                  </span>
-                ) : null }
               </div>
             </div>
           </section>
