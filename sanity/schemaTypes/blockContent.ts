@@ -24,7 +24,6 @@ export default defineType({
       // use your content.
       styles: [
         {title: 'Normal', value: 'normal'},
-        {title: 'Large', value: 'large'},
         {title: 'H1', value: 'h1'},
         {title: 'H2', value: 'h2'},
         {title: 'H3', value: 'h3'},
@@ -42,12 +41,6 @@ export default defineType({
         decorators: [
           {title: 'Strong', value: 'strong'},
           {title: 'Emphasis', value: 'em'},
-          {title: 'Underline', value: 'underline'},
-          {
-            title: 'Highlight', 
-            value: 'highlight',
-            component: (props.children) => <span style={{fontSize: '22px', color: '#474D55'}}>{props.children}</span>
-          }
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
