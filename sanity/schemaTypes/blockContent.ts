@@ -42,6 +42,12 @@ export default defineType({
         decorators: [
           {title: 'Strong', value: 'strong'},
           {title: 'Emphasis', value: 'em'},
+          {title: 'Underline', value: 'underline'},
+          {
+            title: 'Highlight', 
+            value: 'highlight',
+            component: (props.children) => <span style={{fontSize: '22px', color: '#474D55'}}>{props.children}</span>
+          }
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
