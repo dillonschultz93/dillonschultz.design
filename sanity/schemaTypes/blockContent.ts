@@ -1,7 +1,4 @@
 import {defineType, defineArrayMember} from 'sanity'
-import React from 'react'
-
-const LargeStyle = (props: {children: React.ReactNode}) => (<h2 className="text-2xl font-bold mb-4">{props.children}</h2>);
 
 /**
  * This is the schema definition for the rich text fields used for
@@ -27,11 +24,6 @@ export default defineType({
       // use your content.
       styles: [
         {title: 'Normal', value: 'normal'},
-        {
-          title: 'Large', 
-          value: 'large',
-          component: LargeStyle,
-        },
         {title: 'H1', value: 'h1'},
         {title: 'H2', value: 'h2'},
         {title: 'H3', value: 'h3'},
