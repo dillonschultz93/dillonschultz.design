@@ -72,6 +72,10 @@ export default defineType({
           name: 'caption',
           type: 'string',
         }),
+        defineField({
+          name: 'alt',
+          type: 'string',
+        }),
       ],
     }),
   ],
