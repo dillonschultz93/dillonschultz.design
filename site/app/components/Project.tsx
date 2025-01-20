@@ -1,27 +1,26 @@
 import type { SanityDocument } from "@sanity/client";
-
 import { PortableText } from "@portabletext/react";
 import imageUrlBuilder from "@sanity/image-url";
 import { getImageDimensions } from "@sanity/asset-utils";
 import { projectId, dataset } from "../sanity/projectDetails";
 import Zoom from 'react-medium-image-zoom';
+import { Image } from './Image';
 
 const builder = imageUrlBuilder({ projectId, dataset });
 
 // Bare-bones lazy-loaded image component
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const SimpleInlineImage = ({ value, isInline }: { value: any, isInline: boolean }) => {
-  const {width, height} = getImageDimensions(value)
+  const {width, height} = getImageDimensions(value);
+  // const imageSource = builder.image(value).fit('max').auto('format').quality(85).url();
+
   return (
     <Zoom wrapElement="span">
-      <img
-        src={builder
-          .image(value)
-          .fit('max')
-          .auto('format')
-          .quality(85)
-          .url()}
+      <Image
+        value={value}
         alt={value.alt || ' '}
+        width={width}
+        height={height}
         loading="lazy"
         style={{
           // Display alongside text if image appears inside a block text span
@@ -30,11 +29,8 @@ const SimpleInlineImage = ({ value, isInline }: { value: any, isInline: boolean 
           // Avoid jumping around with aspect-ratio CSS property
           aspectRatio: width / height,
         }}
+        caption={value.caption}
       />
-      {/* Display a caption below the image */}
-      <span className="image-caption">
-        {value.caption}
-      </span>
     </Zoom>
   )
 }
@@ -52,7 +48,7 @@ export default function Project({ post }: { post: SanityDocument }) {
     <>
       {mainImage ? (
           <img
-            src={builder.image(mainImage).quality(100).url()}
+            src={builder.image(mainImage).quality(80).url()}
             alt={title}
             loading="lazy"
             className="banner-image col-span-full object-cover mb-8 md:mb-16 w-full md:col-start-5 lg:col-start-5"
