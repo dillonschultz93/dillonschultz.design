@@ -13,10 +13,10 @@ export default function Projects({ posts }: { posts: SanityDocument[] }) {
                 { post.title }
               </Link>
               <div className="flex">
-                <span>
+                {/* <span>
                   { new Date(post.publishedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }
-                </span>
-                { post.tags && post.tags.length > 0 ? (
+                </span> */}
+                {/* { post.tags && post.tags.length > 0 ? (
                   <span>
                     &nbsp;|&nbsp;
                     { post.tags.map((tag: string, index: number) => (
@@ -26,7 +26,7 @@ export default function Projects({ posts }: { posts: SanityDocument[] }) {
                       </span>
                     )) }
                   </span>
-                ) : null }
+                ) : null } */}
               </div>
             </div>
             <p className="project-description">
