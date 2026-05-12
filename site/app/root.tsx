@@ -15,7 +15,7 @@ import { SpeedInsights } from "@vercel/speed-insights/remix"
 
 import tailwindHref from "../styles/tailwind.css";
 import stylesHref from "../styles/app.css";
-// import darkThemeHref from "@quieto/tokens/dist/css/_dark.css";
+// import darkThemeHref from "../../styles/tokens/_dark.css";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: tailwindHref },
