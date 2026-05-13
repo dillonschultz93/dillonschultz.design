@@ -9,7 +9,7 @@ import {
   useLoaderData,
 } from "@remix-run/react";
 import { json } from "@remix-run/node";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, MotionConfig } from "framer-motion";
 import Navigation from "./components/Navigation";
 import { SpeedInsights } from "@vercel/speed-insights/remix"
 
@@ -63,9 +63,11 @@ export default function App() {
       </head>
       <body>
         <Navigation />
-        <AnimatePresence mode="wait">
-          <Outlet />
-        </AnimatePresence>
+        <MotionConfig reducedMotion="user">
+          <AnimatePresence mode="wait">
+            <Outlet />
+          </AnimatePresence>
+        </MotionConfig>
         <ScrollRestoration />
         <script
           dangerouslySetInnerHTML={{

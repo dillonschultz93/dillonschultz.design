@@ -4,12 +4,21 @@ import type { SanityDocument } from "@sanity/client";
 import { motion } from "framer-motion";
 import Project from "../components/Project";
 import { loadQuery } from "../sanity/loader.server";
-import { POST_QUERY } from "../sanity/queries";
+import { POST_QUERY, POST_SLUGS_QUERY } from "../sanity/queries";
+
+type PostNav = { title: string; slug: string };
 
 export const loader = async ({ params }: LoaderFunctionArgs) => {
-  const {data} = await loadQuery<SanityDocument>(POST_QUERY, params)
+  const [{ data }, { data: allPosts }] = await Promise.all([
+    loadQuery<SanityDocument>(POST_QUERY, params),
+    loadQuery<PostNav[]>(POST_SLUGS_QUERY),
+  ]);
 
-  return { data };
+  const currentIndex = allPosts.findIndex((p) => p.slug === params.slug);
+  const prev = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
+  const next = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
+
+  return { data, prev, next };
 };
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
@@ -27,17 +36,17 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 };
 
 export default function Slug() {
-  const { data } = useLoaderData<typeof loader>();
+  const { data, prev, next } = useLoaderData<typeof loader>();
 
   return (
-    <motion.article 
+    <motion.article
       className="grid grid-cols-1 px-8 md:grid-cols-12 md:px-0 lg:grid-cols-16"
       initial={{ x: '-5%', opacity: 0 }}
       animate={{ x: '0', opacity: 1 }}
       exit={{ x: '-5%',opacity: 0 }}
       transition={{ duration: 0.25 }}
     >
-      <Project post={data} />
+      <Project post={data} prev={prev} next={next} />
     </motion.article>
   );
 }
