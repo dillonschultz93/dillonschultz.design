@@ -6,6 +6,7 @@ html[data-theme="dark"] {
   --color-text-link-idle: #61A7FF;
   --color-text-link-hover: #4C87F9;
   --color-text-link-active: #395CAB;
+  --color-link-background: #233666;
   --color-text-destructive-idle: #FEA69A;
   --color-text-destructive-hover: #B85143;
   --color-text-destructive-active: #9C4438;
