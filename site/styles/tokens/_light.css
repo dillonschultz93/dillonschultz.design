@@ -123,4 +123,6 @@
   --tabs-border-checked-idle: #4C87F9;
   --tabs-border-checked-hover: #4C87F9;
   --tabs-border-checked-active: #4C87F9;
+  --blob-gradient-start: #F6FAFF;
+  --blob-gradient-stop: #4C87F9;
 }

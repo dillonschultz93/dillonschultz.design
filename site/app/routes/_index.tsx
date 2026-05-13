@@ -10,15 +10,31 @@ import { LinkButton } from "../components/Link-Button";
 import { loadQuery } from "../sanity/loader.server";
 import { POSTS_QUERY } from "../sanity/queries";
 
+const seoDescription = "Design engineer with 8+ years in design systems, component-driven UI, and design token architectures. View case studies and download my résumé.";
+
 export const meta: MetaFunction = () => {
   return [
-    { title: "Dillon Schultz" },
-    { property: "og:title", content: "Dillon Schultz"},
-    { property: "og:description", content: "The personal portfolio site of Dillon Schultz"},
+    { title: "Dillon Schultz | Design Engineer" },
+    { property: "og:title", content: "Dillon Schultz | Design Engineer" },
+    { property: "og:description", content: seoDescription },
     { property: "og:type", content: "website" },
     { property: "og:url", content: "https://dillonschultz.design" },
     { property: "og:image", content: "https://dillonschultz.design/og-image-index.jpg" },
-    { name: "description", content: "The personal portfolio site of Dillon Schultz" },
+    { name: "description", content: seoDescription },
+    {
+      "script:ld+json": {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Dillon Schultz",
+        url: "https://dillonschultz.design",
+        jobTitle: "Design Engineer",
+        sameAs: [
+          "https://linkedin.com/in/dillonschultz",
+          "https://github.com/dillonschultz93",
+          "https://www.instagram.com/dill.schultz/",
+        ],
+      },
+    },
   ];
 };
 

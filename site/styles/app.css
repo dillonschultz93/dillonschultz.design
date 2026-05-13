@@ -9,6 +9,7 @@ body {
 
 .nav {
   background-color: var(--color-bg-secondary-hover);
+  border-color: var(--color-border-default);
 }
 
 .text-vertical {
@@ -132,9 +133,9 @@ article .image-caption {
 }
 
 .title-lg {
-  font-size: var(--typography-title-s-size);
+  font-size: var(--typography-title-m-size);
   font-weight: var(--typography-weight-bold);
-  line-height: var(--typography-title-s-line-height);
+  line-height: var(--typography-title-m-line-height);
 }
 
 .link, article a {
