@@ -1,11 +1,32 @@
-# Sanity Blogging Content Studio
+# dillonschultz.design — Sanity Studio
 
-Congratulations, you have now installed the Sanity Content Studio, an open source real-time content editing environment connected to the Sanity backend.
+The content management backend for [dillonschultz.design](https://dillonschultz.design), powered by [Sanity](https://sanity.io).
 
-Now you can do the following things:
+## Plugins
 
-- [Read “getting started” in the docs](https://www.sanity.io/docs/introduction/getting-started?utm_source=readme)
-- Check out the example frontend: [React/Next.js](https://github.com/sanity-io/tutorial-sanity-blog-react-next)
-- [Read the blog post about this template](https://www.sanity.io/blog/build-your-own-blog-with-sanity-and-next-js?utm_source=readme)
-- [Join the community Slack](https://slack.sanity.io/?utm_source=readme)
-- [Extend and build plugins](https://www.sanity.io/docs/content-studio/extending?utm_source=readme)
+- **Structure Tool** — default desk for browsing and editing documents
+- **Vision Tool** — GROQ query playground for testing queries against the dataset
+
+## Content Schemas
+
+| Schema | Type | Description |
+|--------|------|-------------|
+| `post` | Document | Project case studies — title, description, slug, main image, tags, published date, and rich text body |
+| `author` | Document | Author profiles — name, slug, image, and bio |
+| `blockContent` | Array | Rich text definition — headings (H1–H6), blockquotes, lists, inline links, bold/emphasis, and images with caption and alt text |
+
+## Development
+
+```bash
+npm install
+npm run dev
+```
+
+Requires a [Sanity account](https://sanity.io). The project ID and dataset are configured in `sanity.config.ts`.
+
+## Deployment
+
+```bash
+npm run build    # Build the studio for production
+npm run deploy   # Deploy to Sanity's hosted studio
+```

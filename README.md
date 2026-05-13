@@ -1,34 +1,43 @@
-# Personal Portfolio Website
-This is a personal portfolio website that I have created using Remix for the frontend and Sanity as the headless CMS.
+# dillonschultz.design
 
-## How to run the frontend locally
-1. Change directory to the `site` folder
+Source code for [dillonschultz.design](https://dillonschultz.design) — a personal portfolio and case study site. The repo is a monorepo with two packages:
+
+| Package | Purpose |
+|---------|---------|
+| [`site/`](site/) | Remix v2 frontend — routes, components, design tokens, static assets |
+| [`sanity/`](sanity/) | Sanity Studio — content schemas, desk structure, studio config |
+
+## Quick Start
+
+Each package has its own dependencies. From the repo root:
+
 ```bash
-cd site
-```
-2. Install the dependencies
-```bash
-npm install
-```
-3. Run the development server
-```bash
-npm run dev
+# Site
+cd site && npm install && npm run dev
+
+# Sanity Studio (requires a Sanity account)
+cd sanity && npm install && npm run dev
 ```
 
-## How to run the Sanity instance locally
-1. Change directory to the `sanity` folder
-```bash
-cd sanity
-```
-2. Install the dependencies
-```bash
-npm install
-```
-3. Create a Sanity project (this will require a Sanity account)
-```bash
-npm create sanity@latest -- --create-project "<project name>" --dataset production
-```
-4. Run the development server
-```bash
-npm run dev
-```
+The site requires environment variables for the Sanity connection — see [`site/README.md`](site/README.md) for details.
+
+## Tech Stack
+
+- **Frontend:** [Remix](https://remix.run) v2, [Tailwind CSS](https://tailwindcss.com), [Framer Motion](https://www.framer.com/motion/)
+- **CMS:** [Sanity](https://sanity.io) with GROQ queries
+- **Deployment:** [Vercel](https://vercel.com) (auto-deploys on push)
+- **Design Tokens:** Custom CSS custom properties with light/dark theme support
+
+## Features
+
+- Dark mode with system preference detection and manual toggle
+- Animated blob background (theme-aware gradients)
+- Project case studies with previous/next navigation
+- Résumé PDF download
+- Responsive layout with mobile-first design
+- Reduced motion support via `prefers-reduced-motion`
+- JSON-LD structured data for SEO
+
+## Further Reading
+
+- [`site/README.md`](site/README.md) — frontend architecture, project structure
