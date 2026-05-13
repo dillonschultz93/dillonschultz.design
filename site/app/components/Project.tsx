@@ -1,10 +1,13 @@
 import type { SanityDocument } from "@sanity/client";
+import { Link } from "@remix-run/react";
 import { PortableText } from "@portabletext/react";
 import imageUrlBuilder from "@sanity/image-url";
 import { getImageDimensions } from "@sanity/asset-utils";
 import { projectId, dataset } from "../sanity/projectDetails";
 import Zoom from 'react-medium-image-zoom';
 import { Image } from './Image';
+
+type PostNav = { title: string; slug: string } | null;
 
 const builder = imageUrlBuilder({ projectId, dataset });
 
@@ -41,7 +44,7 @@ const components = {
   },
 }
 
-export default function Project({ post }: { post: SanityDocument }) {
+export default function Project({ post, prev, next }: { post: SanityDocument; prev?: PostNav; next?: PostNav }) {
   const { title, description, body, mainImage } = post;
 
   return (
@@ -74,6 +77,22 @@ export default function Project({ post }: { post: SanityDocument }) {
             <PortableText value={body} components={components} />
           </section>
         ) : null}
+        {(prev || next) && (
+          <nav className="flex justify-between items-center pt-12 border-t" style={{ borderColor: 'var(--color-border-default)' }}>
+            {prev ? (
+              <Link to={`/projects/${prev.slug}`} className="flex flex-col gap-1">
+                <span className="tertiary" style={{ fontSize: 'var(--typography-label-m-size)' }}>Previous</span>
+                <span className="link">{prev.title}</span>
+              </Link>
+            ) : <span />}
+            {next ? (
+              <Link to={`/projects/${next.slug}`} className="flex flex-col gap-1 text-right">
+                <span className="tertiary" style={{ fontSize: 'var(--typography-label-m-size)' }}>Next</span>
+                <span className="link">{next.title}</span>
+              </Link>
+            ) : <span />}
+          </nav>
+        )}
       </main>
     </>
   );

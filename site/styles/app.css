@@ -161,7 +161,7 @@ article .image-caption {
   bottom: 0;
   left: 0;
   inset: 0 0 0 0;
-  background: var(--color-primary-100);
+  background: var(--color-link-background);
   z-index: -1;
   transition: transform 0.3s ease;
 }
