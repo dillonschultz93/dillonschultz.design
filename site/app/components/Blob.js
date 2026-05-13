@@ -88,7 +88,6 @@ const Blob = () => {
 
     // const svg = document.querySelector('#blob');
     const path = document.querySelector('#manipulated-path');
-    const root = document.documentElement;
 
     const createPoints = () => {
       const points = [];
@@ -140,8 +139,6 @@ const Blob = () => {
         point.noiseOffsetY += noiseStep;
       });
 
-      root.style.setProperty('--startColor', '#F6FAFF');
-      root.style.setProperty('--stopColor', '#4C87F9');
     })();
   });
 
@@ -149,11 +146,11 @@ const Blob = () => {
     <svg viewBox="0 0 200 200" id="blob" style={SVGStyles}>
       <defs>
         <linearGradient id="gradient" gradientTransform="rotate(90)">
-          <stop id="gradientStop1" offset="0%" stopColor="var(--startColor)" />
+          <stop id="gradientStop1" offset="0%" stopColor="var(--blob-gradient-start)" />
           <stop
-            id="gradientStop2 "
+            id="gradientStop2"
             offset="100%"
-            stopColor="var(--stopColor)"
+            stopColor="var(--blob-gradient-stop)"
           />
         </linearGradient>
       </defs>

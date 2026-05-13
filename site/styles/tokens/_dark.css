@@ -1,9 +1,4 @@
-/**
- * Do not edit directly
- * Generated on Mon, 26 Feb 2024 04:58:21 GMT
- */
-
-:root {
+html[data-theme="dark"] {
   --color-text-primary: #FFFFFF;
   --color-text-secondary: #A0A5AE;
   --color-text-tertiary: #858B97;
@@ -123,4 +118,6 @@
   --tabs-border-checked-idle: #61A7FF;
   --tabs-border-checked-hover: #61A7FF;
   --tabs-border-checked-active: #61A7FF;
+  --blob-gradient-start: #233666;
+  --blob-gradient-stop: #395CAB;
 }

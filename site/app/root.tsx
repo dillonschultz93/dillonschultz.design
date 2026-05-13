@@ -15,7 +15,6 @@ import { SpeedInsights } from "@vercel/speed-insights/remix"
 
 import tailwindHref from "../styles/tailwind.css";
 import stylesHref from "../styles/app.css";
-// import darkThemeHref from "../../styles/tokens/_dark.css";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: tailwindHref },
@@ -36,7 +35,6 @@ export const links: LinksFunction = () => [
   { rel: "icon", sizes: "128x128", href: "/favicon-128x128.png" },
   { rel: "icon", sizes: "192x192", href: "/favicon-192x192.png" },
   { rel: "icon", href: "/favicon.ico" },
-  // { rel: "stylesheet", href: darkThemeHref, media: "(prefers-color-scheme: dark)" },
 ];
 
 export const loader = () => {
@@ -58,6 +56,8 @@ export default function App() {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="color-scheme" content="light dark" />
+        <script dangerouslySetInnerHTML={{ __html: `(function(){var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);document.querySelector('meta[name=color-scheme]').content=t})()` }} />
         <Meta />
         <Links />
       </head>
