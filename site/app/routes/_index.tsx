@@ -10,7 +10,7 @@ import { LinkButton } from "../components/Link-Button";
 import { loadQuery } from "../sanity/loader.server";
 import { POSTS_QUERY } from "../sanity/queries";
 
-const seoDescription = "Design engineer with 8+ years in design systems, component-driven UI, and design token architectures. View case studies and download my résumé.";
+const seoDescription = "Design engineer with 8+ years in design systems, component-driven UI, and design token architectures. View case studies and my résumé.";
 
 export const meta: MetaFunction = () => {
   return [
@@ -67,14 +67,13 @@ export default function Index() {
         </h3>
         <div className="flex gap-6">
           <LinkButton
-            href="/dillon-schultz-resume.pdf"
+            href="/resume"
             target="_self"
-            download={true}
             type="primary"
             label="My résumé"
           >
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10 1.5C10.5523 1.5 11 1.94772 11 2.5V10.0858L13.4596 7.62623C13.8501 7.2357 14.4832 7.2357 14.8738 7.62623C15.2643 8.01675 15.2643 8.64992 14.8738 9.04044L10.7071 13.2071C10.5196 13.3946 10.2652 13.5 10 13.5C9.73478 13.5 9.48043 13.3946 9.29289 13.2071L5.12623 9.04044C4.7357 8.64992 4.7357 8.01675 5.12623 7.62623C5.51675 7.2357 6.14992 7.2357 6.54044 7.62623L9 10.0858L9 2.5C9 1.94772 9.44772 1.5 10 1.5ZM2.5 11.5C3.05228 11.5 3.5 11.9477 3.5 12.5V15.8333C3.5 16.0101 3.57024 16.1797 3.69526 16.3047C3.82029 16.4298 3.98986 16.5 4.16667 16.5H15.8333C16.0101 16.5 16.1797 16.4298 16.3047 16.3047C16.4298 16.1797 16.5 16.0101 16.5 15.8333V12.5C16.5 11.9477 16.9477 11.5 17.5 11.5C18.0523 11.5 18.5 11.9477 18.5 12.5V15.8333C18.5 16.5406 18.219 17.2189 17.719 17.719C17.2189 18.219 16.5406 18.5 15.8333 18.5H4.16667C3.45942 18.5 2.78115 18.219 2.28105 17.719C1.78095 17.2189 1.5 16.5406 1.5 15.8333V12.5C1.5 11.9477 1.94772 11.5 2.5 11.5Z"/>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path fillRule="evenodd" clipRule="evenodd" d="M5 1.5C3.89543 1.5 3 2.39543 3 3.5V16.5C3 17.6046 3.89543 18.5 5 18.5H15C16.1046 18.5 17 17.6046 17 16.5V7.41421C17 6.88378 16.7893 6.37507 16.4142 6L12.5 2.08579C12.1249 1.71071 11.6162 1.5 11.0858 1.5H5ZM5 3.5H10.5V6.5C10.5 7.60457 11.3954 8.5 12.5 8.5H15V16.5H5V3.5ZM12.5 4.33579L14.1642 6H12.5V4.33579ZM7 11C7 10.4477 7.44772 10 8 10H12C12.5523 10 13 10.4477 13 11C13 11.5523 12.5523 12 12 12H8C7.44772 12 7 11.5523 7 11ZM8 13C7.44772 13 7 13.4477 7 14C7 14.5523 7.44772 15 8 15H12C12.5523 15 13 14.5523 13 14C13 13.4477 12.5523 13 12 13H8Z"/>
             </svg>
           </LinkButton>
           <LinkButton
