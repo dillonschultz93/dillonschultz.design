@@ -39,5 +39,8 @@
     "printWidth": 100,
     "bracketSpacing": false,
     "singleQuote": true
+  },
+  "overrides": {
+    "yargs": "17.7.3"
   }
 }

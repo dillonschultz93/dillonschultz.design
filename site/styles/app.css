@@ -452,3 +452,209 @@ blockquote {
     display: block;
   }
 }
+
+/* Résumé */
+.resume {
+  gap: var(--dimension-space-xxl);
+}
+
+.resume h1 {
+  margin-bottom: 0;
+}
+
+.resume-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dimension-space-m);
+}
+
+.resume-headline {
+  color: var(--color-text-secondary);
+  font-size: var(--typography-title-m-size);
+  line-height: var(--typography-title-m-line-height);
+  text-wrap: balance;
+}
+
+.resume-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--dimension-space-xs);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.resume-contact li {
+  font-family: var(--typography-family-mono);
+  font-size: var(--typography-label-m-size);
+  line-height: var(--typography-label-m-line-height);
+  background-color: var(--color-bg-secondary-idle);
+  padding: var(--dimension-space-xxs) var(--dimension-space-s);
+  border-radius: var(--dimension-corner-s);
+}
+
+.resume-actions {
+  display: flex;
+  padding-top: var(--dimension-space-s);
+}
+
+.resume-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dimension-space-lg);
+}
+
+.resume-section h2 {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--dimension-space-m);
+  margin: 0;
+  padding-bottom: var(--dimension-space-xs);
+  border-bottom: var(--dimension-border-width-s) solid var(--color-border-default);
+  font-family: var(--typography-family-mono);
+  font-size: var(--typography-label-m-size);
+  line-height: var(--typography-label-m-line-height);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.resume-section h2 small {
+  font-size: inherit;
+  font-weight: var(--typography-weight-regular);
+  color: var(--color-text-tertiary);
+}
+
+.resume-summary,
+.resume-role p {
+  max-width: 68ch;
+}
+
+.resume-summary {
+  font-size: var(--typography-body-lg-size);
+  line-height: var(--typography-body-lg-line-height);
+}
+
+.resume-role header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--dimension-space-xxs) var(--dimension-space-m);
+}
+
+.resume .resume-role h4 {
+  margin: 0;
+  font-size: var(--typography-title-m-size);
+  line-height: var(--typography-title-m-line-height);
+}
+
+.resume-role h4 span {
+  font-weight: var(--typography-weight-regular);
+  color: var(--color-text-secondary);
+}
+
+.resume-meta {
+  font-family: var(--typography-family-mono);
+  font-size: var(--typography-label-s-size);
+  line-height: var(--typography-label-s-line-height);
+  color: var(--color-text-tertiary);
+  font-variant-numeric: tabular-nums;
+}
+
+.resume-role ul {
+  margin: var(--dimension-space-xs) 0 0;
+}
+
+.resume-role li {
+  margin: var(--dimension-space-xxs) 0;
+}
+
+.resume li::marker {
+  color: var(--color-text-tertiary);
+}
+
+.resume-role p {
+  margin: var(--dimension-space-xs) 0 0;
+  font-size: var(--typography-body-m-size);
+  line-height: var(--typography-body-m-line-height);
+}
+
+.resume .resume-sub {
+  margin: var(--dimension-space-s) 0 0;
+  font-family: var(--typography-family-mono);
+  font-size: var(--typography-label-s-size);
+  line-height: var(--typography-label-s-line-height);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+.resume-edu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--dimension-space-xs);
+}
+
+.resume-skills {
+  display: flex;
+  flex-direction: column;
+  gap: var(--dimension-space-m);
+  margin: 0;
+}
+
+.resume-skills div {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.resume-skills dt {
+  font-weight: var(--typography-weight-bold);
+}
+
+.resume-skills dd {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+@media (min-width: 640px) {
+  .resume-role p {
+    font-size: var(--typography-body-lg-size);
+    line-height: var(--typography-body-lg-line-height);
+  }
+
+  .resume-skills div {
+    grid-template-columns: 11rem 1fr;
+    gap: var(--dimension-space-m);
+  }
+}
+
+@media print {
+  .nav,
+  .blob,
+  .resume-actions {
+    display: none !important;
+  }
+
+  .resume {
+    grid-column: 1 / -1 !important;
+    padding: 0 !important;
+    max-width: none;
+    gap: var(--dimension-space-lg);
+  }
+
+  .resume-section h2 {
+    break-after: avoid;
+  }
+
+  .resume-role {
+    break-inside: avoid;
+  }
+
+  .resume a::before {
+    display: none;
+  }
+}
