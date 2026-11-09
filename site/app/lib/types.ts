@@ -1,5 +1,7 @@
 export type ImageBlock = { _type: "image"; _key: string; width: number; height: number; alt: string; caption: string; src: string; srcSet: string };
-export type BodyBlock = ImageBlock | ({ _type: string; _key: string; style?: string; id?: string } & Record<string, unknown>);
+/** A code block, already highlighted at build time. */
+export type CodeBlock = { _type: "code"; _key: string; html: string; language: string; filename: string };
+export type BodyBlock = ImageBlock | CodeBlock | ({ _type: string; _key: string; style?: string; id?: string } & Record<string, unknown>);
 export type Heading = { id: string; text: string };
 export type NavLinkData = { title: string; slug: string } | null;
 

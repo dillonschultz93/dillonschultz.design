@@ -1,14 +1,15 @@
-import {defineType, defineArrayMember, defineField} from 'sanity'
+import {defineArrayMember, defineField, defineType} from 'sanity'
+
+type Block = {_type: string; _key: string; children?: {text?: string}[]}
+
+const isEmptyParagraph = (block: Block) =>
+  block._type === 'block' && !(block.children ?? []).some((span) => span.text?.trim())
 
 /**
- * This is the schema definition for the rich text fields used for
- * for this blog studio. When you import it in schemas.js it can be
- * reused in other parts of the studio with:
- *  {
- *    name: 'someName',
- *    title: 'Some title',
- *    type: 'blockContent'
- *  }
+ * The rich text used by case studies (post) and writing (article).
+ *
+ * Offers only what the site renders. The document title is the page's only h1, so headings
+ * start at H2; sections (H2) also fill the page's contents list.
  */
 export default defineType({
   title: 'Block Content',
@@ -18,65 +19,100 @@ export default defineType({
     defineArrayMember({
       title: 'Block',
       type: 'block',
-      // Styles let you set what your user can mark up blocks with. These
-      // correspond with HTML tags, but you can set any title or value
-      // you want and decide how you want to deal with it where you want to
-      // use your content.
       styles: [
-        {title: 'Normal', value: 'normal'},
-        {title: 'H1', value: 'h1'},
-        {title: 'H2', value: 'h2'},
-        {title: 'H3', value: 'h3'},
-        {title: 'H4', value: 'h4'},
-        {title: 'H5', value: 'h5'},
-        {title: 'H6', value: 'h6'},
-        {title: 'Quote', value: 'blockquote'},
+        {title: 'Paragraph', value: 'normal'},
+        {title: 'Section (H2)', value: 'h2'},
+        {title: 'Subsection (H3)', value: 'h3'},
+        {title: 'Minor heading (H4)', value: 'h4'},
+        {title: 'Pull quote', value: 'blockquote'},
       ],
       lists: [
         {title: 'Bullet', value: 'bullet'},
         {title: 'Number', value: 'number'},
       ],
-      // Marks let you mark up inline text in the block editor.
       marks: {
-        // Decorators usually describe a single property – e.g. a typographic
-        // preference or highlighting by editors.
         decorators: [
           {title: 'Strong', value: 'strong'},
           {title: 'Emphasis', value: 'em'},
+          {title: 'Code', value: 'code'},
         ],
-        // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
-          {
-            title: 'URL',
+          defineArrayMember({
+            title: 'Link',
             name: 'link',
             type: 'object',
             fields: [
-              {
+              defineField({
                 title: 'URL',
                 name: 'href',
                 type: 'url',
-              },
+                description: 'A full URL, an email (mailto:), or a page on this site such as /projects/quieto-tokens.',
+                validation: (rule) =>
+                  rule.required().uri({allowRelative: true, scheme: ['http', 'https', 'mailto']}),
+              }),
             ],
-          },
+          }),
         ],
       },
     }),
-    // You can add additional types here. Note that you can't use
-    // primitive types such as 'string' and 'number' in the same array
-    // as a block type.
     defineArrayMember({
       type: 'image',
-      options: {hotspot: true},
       fields: [
         defineField({
-          name: 'caption',
+          name: 'alt',
+          title: 'Alt text',
           type: 'string',
+          description: 'What the image shows, for people who can’t see it. Not the caption repeated.',
+          hidden: ({parent}) => Boolean(parent?.decorative),
+          validation: (rule) =>
+            rule.custom((alt, context) => {
+              const parent = context.parent as {decorative?: boolean} | undefined
+              return parent?.decorative || alt?.trim() ? true : 'Describe the image, or mark it decorative.'
+            }),
         }),
         defineField({
-          name: 'alt',
+          name: 'decorative',
+          title: 'Decorative',
+          type: 'boolean',
+          description: 'Adds nothing a reader would miss, so screen readers skip it.',
+          initialValue: false,
+        }),
+        defineField({
+          name: 'caption',
+          title: 'Caption',
           type: 'string',
+          description: 'Shown under the image.',
         }),
       ],
     }),
+    defineArrayMember({
+      type: 'code',
+      title: 'Code block',
+      options: {
+        language: 'tsx',
+        withFilename: true,
+        languageAlternatives: [
+          {title: 'TSX', value: 'tsx'},
+          {title: 'TypeScript', value: 'typescript'},
+          {title: 'JavaScript', value: 'javascript'},
+          {title: 'CSS', value: 'css'},
+          {title: 'HTML', value: 'html'},
+          {title: 'JSON', value: 'json'},
+          {title: 'Shell', value: 'sh'},
+          {title: 'Plain text', value: 'text'},
+        ],
+      },
+    }),
   ],
+  validation: (rule) =>
+    rule
+      .custom((blocks: Block[] | undefined) => {
+        const empty = (blocks ?? []).filter(isEmptyParagraph)
+        if (!empty.length) return true
+        return {
+          message: 'Empty paragraphs aren’t shown on the site. Remove them; spacing comes from the design.',
+          paths: empty.map((block) => [{_key: block._key}]),
+        }
+      })
+      .warning(),
 })

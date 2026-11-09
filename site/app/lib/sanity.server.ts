@@ -23,22 +23,37 @@ type RawBlock = {
   style?: string;
   children?: { text?: string }[];
   alt?: string;
+  decorative?: boolean;
   caption?: string;
   asset?: { metadata?: { dimensions?: { width: number; height: number } } };
   [key: string]: unknown;
 };
 
+const CODE_LANGUAGES = new Set(["tsx", "typescript", "javascript", "css", "html", "json", "sh"]);
+
+/** Highlighted here, at build time, so no highlighter ships. Both themes' colors are inlined as CSS variables. */
+async function highlight(code: string, language?: string) {
+  const { codeToHtml } = await import("shiki");
+  const lang = language && CODE_LANGUAGES.has(language) ? language : "text";
+  return codeToHtml(code, { lang, themes: { light: "github-light", dark: "github-dark" }, defaultColor: false });
+}
+
 /**
- * Prepares Portable Text for the page: drops blank spacer blocks, maps each document's
- * heading levels onto h2 and below (the page title is the only h1), and resolves image URLs
- * here so no Sanity code ships to the browser.
+ * Prepares Portable Text for the page: drops blank spacer blocks, resolves image URLs and
+ * highlights code here so no Sanity or Shiki code ships to the browser. The Studio offers
+ * H2–H4, but as a safety net any heading levels a document uses are still mapped onto h2 and
+ * below in order (the page title is the only h1).
  */
-function prepareBody(raw: RawBlock[] | null) {
+async function prepareBody(raw: RawBlock[] | null) {
   const blocks = (raw ?? []).filter((b) => b._type !== "block" || textOf(b).trim());
   const levels = [...new Set(blocks.map((b) => b.style ?? "").filter((s) => /^h[1-6]$/.test(s)))].sort();
   const tag = (style: string) => `h${Math.min(levels.indexOf(style) + 2, 4)}`;
   const headings: { id: string; text: string }[] = [];
-  const body = blocks.map((b): BodyBlock => {
+  const body = blocks.map((b): BodyBlock | Promise<BodyBlock> => {
+    if (b._type === "code") {
+      const { code = "", language, filename } = b as RawBlock & { code?: string; language?: string; filename?: string };
+      return highlight(code, language).then((html) => ({ _type: "code", _key: b._key, html, language: language ?? "text", filename: filename ?? "" }));
+    }
     if (b._type === "image") {
       const { width = 1600, height = 900 } = b.asset?.metadata?.dimensions ?? {};
       const source = b as unknown as ImageSource;
@@ -47,7 +62,7 @@ function prepareBody(raw: RawBlock[] | null) {
         _key: b._key,
         width,
         height,
-        alt: b.alt ?? "",
+        alt: b.decorative ? "" : (b.alt ?? ""),
         caption: b.caption ?? "",
         src: imageUrl(source, 1280),
         srcSet: [640, 960, 1280, 1824].map((w) => `${imageUrl(source, w)} ${w}w`).join(", "),
@@ -62,7 +77,7 @@ function prepareBody(raw: RawBlock[] | null) {
     }
     return b as BodyBlock;
   });
-  return { body, headings };
+  return { body: await Promise.all(body), headings };
 }
 
 const BODY = `body[]{ ..., _type == "image" => { ..., asset->{ _id, url, metadata{ dimensions } } } }`;
@@ -97,7 +112,7 @@ export async function getProject(slug: string): Promise<Project | null> {
   const i = rows.findIndex((r) => r.slug === slug);
   if (i < 0) return null;
   const nav = (r?: { title: string; slug: string }) => (r ? { title: r.title, slug: r.slug } : null);
-  return { ...toSummary(rows[i], i), ...prepareBody(rows[i].body), previous: nav(rows[i + 1]), next: nav(rows[i - 1]) };
+  return { ...toSummary(rows[i], i), ...(await prepareBody(rows[i].body)), previous: nav(rows[i + 1]), next: nav(rows[i - 1]) };
 }
 
 const WORDS_PER_MINUTE = 220;
@@ -134,7 +149,7 @@ export async function getArticle(slug: string): Promise<Article | null> {
   const i = rows.findIndex((r) => r.slug === slug);
   if (i < 0) return null;
   const nav = (r?: RawArticle) => (r ? { title: r.title, slug: r.slug } : null);
-  return { ...toArticleSummary(rows[i]), ...prepareBody(rows[i].body), previous: nav(rows[i + 1]), next: nav(rows[i - 1]) };
+  return { ...toArticleSummary(rows[i]), ...(await prepareBody(rows[i].body)), previous: nav(rows[i + 1]), next: nav(rows[i - 1]) };
 }
 
 export async function getResume() {

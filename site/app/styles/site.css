@@ -172,6 +172,16 @@ a:hover .text-link .qds-icon, a.text-link:hover .qds-icon { transform: translate
 .prose li + li { margin-top: var(--qds-spacing-200); }
 .prose blockquote { padding-left: var(--qds-spacing-500); border-left: 2px solid var(--qds-semantic-color-border-primary); font-size: var(--qds-semantic-typography-title-font-size); font-weight: var(--qds-semantic-typography-title-font-weight); line-height: var(--qds-semantic-typography-title-line-height); }
 .prose code { font-family: var(--qds-semantic-typography-data-font-family); font-size: 0.875em; }
+.prose :not(pre) > code { padding: 0.125em 0.375em; border-radius: var(--qds-semantic-radius-default); background: var(--qds-semantic-color-background-subtle); overflow-wrap: anywhere; }
+
+/* Code blocks: Shiki inlines both themes' colors as variables, and data-theme picks one. */
+.code-block { margin-block: var(--qds-spacing-600); border: 1px solid var(--qds-semantic-color-border-subtle); border-radius: var(--qds-semantic-radius-default); background: var(--qds-semantic-color-background-subtle); overflow: hidden; }
+.code-block-label { padding: var(--qds-spacing-200) var(--qds-spacing-400); border-bottom: 1px solid var(--qds-semantic-color-border-subtle); font-family: var(--qds-semantic-typography-data-font-family); font-size: var(--qds-semantic-typography-meta-font-size); color: var(--qds-semantic-color-content-subtle); }
+.code-block pre { margin: 0; padding: var(--qds-spacing-400); overflow-x: auto; font-size: 0.875rem; line-height: 1.6; tab-size: 2; }
+.code-block pre:focus-visible { outline: var(--qds-semantic-border-primary) solid var(--qds-semantic-color-border-primary); outline-offset: -2px; }
+.code-block pre code { font-size: inherit; }
+.shiki, .shiki span { color: var(--shiki-light); }
+:root[data-theme="dark"] .shiki, :root[data-theme="dark"] .shiki span { color: var(--shiki-dark); }
 .prose .figure { margin-block: var(--qds-spacing-600); }
 .figure img { width: 100%; border: 1px solid var(--qds-semantic-color-border-subtle); border-radius: var(--qds-semantic-radius-primary); }
 .figure figcaption { margin-top: var(--qds-spacing-300); color: var(--qds-semantic-color-content-subtle); font-size: var(--qds-semantic-typography-meta-font-size); line-height: var(--qds-semantic-typography-meta-line-height); }

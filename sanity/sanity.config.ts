@@ -1,6 +1,7 @@
 import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
+import {codeInput} from '@sanity/code-input'
 import {schemaTypes} from './schemaTypes'
 
 // Singleton types are edited through a fixed document ID, not a list
@@ -30,6 +31,7 @@ export default defineConfig({
           ]),
     }),
     visionTool(),
+    codeInput(),
   ],
 
   schema: {
