@@ -58,10 +58,6 @@ export default function Home({ loaderData }: Route.ComponentProps) {
             <Button href="/resume">My résumé</Button>
             <Button href="https://linkedin.com/in/dillonschultz" variant="secondary">My LinkedIn</Button>
           </div>
-          <dl className="proof">
-            <div><dt className="headline">8+</dt><dd className="meta">years across design systems, component-driven UI and editorial design</dd></div>
-            <div><dt className="headline">63%</dt><dd className="meta">smaller iOS codebase after a SwiftUI component migration</dd></div>
-          </dl>
         </div>
       </section>
       <section id="work" className="section gutter">
