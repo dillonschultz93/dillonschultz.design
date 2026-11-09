@@ -1,54 +1,12 @@
-# dillonschultz.design — Site
+# dillonschultz.design
 
-The frontend for [dillonschultz.design](https://dillonschultz.design), a personal portfolio site built with Remix and Sanity CMS.
+React Router 8 in prerender mode: every page is built to static HTML from Sanity, and client-side navigation takes over in the browser. Publishing in Sanity needs a rebuild, triggered by a webhook.
 
-## Tech Stack
-
-- **Framework:** [Remix](https://remix.run) v2
-- **CMS:** [Sanity](https://sanity.io) (headless, GROQ queries)
-- **Styling:** [Tailwind CSS](https://tailwindcss.com) + custom design tokens
-- **Animations:** [Framer Motion](https://www.framer.com/motion/) (with `prefers-reduced-motion` support)
-- **Deployment:** [Vercel](https://vercel.com)
-- **Runtime:** Node >= 18
-
-## Project Structure
-
-```
-site/
-├── app/
-│   ├── components/       # UI components (Blob, Navigation, Project, ThemeToggle, etc.)
-│   ├── routes/           # Remix file-based routes
-│   │   ├── _index.tsx    # Home page
-│   │   ├── projects.$slug.tsx  # Project detail pages
-│   │   └── $.tsx         # 404 catch-all
-│   └── sanity/           # Sanity client, loaders, and GROQ queries
-├── styles/
-│   ├── tokens/           # Design token CSS (core, light, dark)
-│   ├── _variables.css    # Token imports
-│   ├── app.css           # Global styles and component classes
-│   └── tailwind.css      # Tailwind directives
-└── public/               # Static assets (favicons, resume PDF, build output)
+```bash
+npm run dev        # http://localhost:5173
+npm run build      # outputs build/client
+npm run preview    # serves the build
+npm run typecheck
 ```
 
-## Development
-
-```sh
-npm install
-npm run dev
-```
-
-Requires the following environment variables (see Sanity project settings):
-
-- `SANITY_STUDIO_PROJECT_ID`
-- `SANITY_STUDIO_DATASET`
-- `SANITY_STUDIO_URL`
-- `SANITY_STUDIO_STEGA_ENABLED`
-
-## Build & Deploy
-
-```sh
-npm run build
-npm start
-```
-
-The site deploys automatically to Vercel on push.
+Components in `app/components/ui` are local React versions of Quieto components. They're built on the same `--qds-component-*` tokens and use the same prop names as the `qds-*` attributes, so they can move into a future `@quieto/react` package.
