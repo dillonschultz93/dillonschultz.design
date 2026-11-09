@@ -1,8 +1,8 @@
 node_modules
-
-/.cache
 /build
-/public/build
+/.react-router
+/public/blob.js
 .env
 .DS_Store
-../.DS_Store
+.vercel
+.env*

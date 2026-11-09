@@ -1,83 +1,116 @@
-import type { LinksFunction } from "@remix-run/node";
-import {
-  Links,
-  LiveReload,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-  useLoaderData,
-} from "@remix-run/react";
-import { json } from "@remix-run/node";
-import { AnimatePresence, MotionConfig } from "framer-motion";
-import Navigation from "./components/Navigation";
-import { SpeedInsights } from "@vercel/speed-insights/remix"
+import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
+import { SpeedInsights } from "@vercel/speed-insights/react";
+import { useEffect } from "react";
+import type { Route } from "./+types/root";
+import { NotFound } from "./components/NotFound";
+import { SiteFooter } from "./components/SiteFooter";
+import { SiteHeader } from "./components/SiteHeader";
 
-import tailwindHref from "../styles/tailwind.css";
-import stylesHref from "../styles/app.css";
+import inter400 from "@fontsource/inter/files/inter-latin-400-normal.woff2?url";
+import inter600 from "@fontsource/inter/files/inter-latin-600-normal.woff2?url";
+import inter700 from "@fontsource/inter/files/inter-latin-700-normal.woff2?url";
 
-export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: tailwindHref },
-  { rel: "stylesheet", href: stylesHref },
-  { rel: "apple-touch-icon-precomposed", sizes: "57x57", href: "/apple-touch-icon-57x57.png" },
-  { rel: "apple-touch-icon-precomposed", sizes: "60x60", href: "/apple-touch-icon-60x60.png" },
-  { rel: "apple-touch-icon-precomposed", sizes: "72x72", href: "/apple-touch-icon-72x72.png" },
-  { rel: "apple-touch-icon-precomposed", sizes: "76x76", href: "/apple-touch-icon-76x76.png" },
-  { rel: "apple-touch-icon-precomposed", sizes: "114x114", href: "/apple-touch-icon-114x114.png" },
-  { rel: "apple-touch-icon-precomposed", sizes: "120x120", href: "/apple-touch-icon-120x120.png" },
-  { rel: "apple-touch-icon-precomposed", sizes: "144x144", href: "/apple-touch-icon-144x144.png" },
-  { rel: "apple-touch-icon-precomposed", sizes: "152x152", href: "/apple-touch-icon-152x152.png" },
-  { rel: "apple-touch-icon-precomposed", sizes: "167x167", href: "/apple-touch-icon-167x167.png" },
-  { rel: "apple-touch-icon-precomposed", sizes: "180x180", href: "/apple-touch-icon-180x180.png" },
-  { rel: "icon", sizes: "16x16", href: "/favicon-16x16.png" },
-  { rel: "icon", sizes: "32x32", href: "/favicon-32x32.png" },
-  { rel: "icon", sizes: "96x96", href: "/favicon-96x96.png" },
-  { rel: "icon", sizes: "128x128", href: "/favicon-128x128.png" },
-  { rel: "icon", sizes: "192x192", href: "/favicon-192x192.png" },
-  { rel: "icon", href: "/favicon.ico" },
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
+import "@fontsource/jetbrains-mono/400.css";
+import "@quieto/design-tokens/css";
+import "./styles/ui.css";
+import "./styles/site.css";
+
+const SIZES = [57, 60, 72, 76, 114, 120, 144, 152, 167, 180];
+export const links: Route.LinksFunction = () => [
+  // Preloaded so text doesn't reflow when the fonts arrive.
+  ...[inter400, inter600, inter700].map((href) => ({ rel: "preload", href, as: "font", type: "font/woff2", crossOrigin: "anonymous" as const })),
+  ...SIZES.map((s) => ({ rel: "apple-touch-icon-precomposed", sizes: `${s}x${s}`, href: `/apple-touch-icon-${s}x${s}.png` })),
+  ...[16, 32, 96, 128, 196].map((s) => ({ rel: "icon", sizes: `${s}x${s}`, href: `/favicon-${s}x${s}.png` })),
+  // The size keeps Chromium from preferring the .ico over the SVG. See scripts/favicons.mjs.
+  { rel: "icon", href: "/favicon.ico", sizes: "32x32" },
+  { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
 ];
 
-export const loader = () => {
-  return json({
-    ENV: {
-      SANITY_STUDIO_PROJECT_ID: process.env.SANITY_STUDIO_PROJECT_ID,
-      SANITY_STUDIO_DATASET: process.env.SANITY_STUDIO_DATASET,
-      SANITY_STUDIO_URL: process.env.SANITY_STUDIO_URL,
-      SANITY_STUDIO_STEGA_ENABLED: process.env.SANITY_STUDIO_STEGA_ENABLED,
-    },
-  });
-};
+// Applied before first paint so a stored dark theme never flashes. The markup ships light, so the OS setting never decides.
+const THEME_SCRIPT = `(function(){document.documentElement.classList.add('js');try{if(localStorage.getItem('theme')==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}})()`;
 
-export default function App() {
-  const { ENV } = useLoaderData<typeof loader>();
-  
+export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="light" suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="color-scheme" content="light dark" />
-        <script dangerouslySetInnerHTML={{ __html: `(function(){var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);document.querySelector('meta[name=color-scheme]').content=t})()` }} />
+        <script dangerouslySetInnerHTML={{ __html: THEME_SCRIPT }} />
+        <script src="/blob.js" />
         <Meta />
         <Links />
       </head>
       <body>
-        <Navigation />
-        <MotionConfig reducedMotion="user">
-          <AnimatePresence mode="wait">
-            <Outlet />
-          </AnimatePresence>
-        </MotionConfig>
+        <a className="skip-link" href="#content">Skip to content</a>
+        <SiteHeader />
+        <main id="content">{children}</main>
+        <SiteFooter />
         <ScrollRestoration />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.ENV = ${JSON.stringify(ENV)}`,
-          }}
-        />
         <Scripts />
-        <LiveReload />
         <SpeedInsights />
       </body>
     </html>
+  );
+}
+
+/** Remembers where a click happened, so the page transition's blob opens from that spot. */
+function usePageTransitionOrigin() {
+  useEffect(() => {
+    const remember = (event: MouseEvent) => {
+      const link = (event.target as Element).closest?.("a");
+      if (!link) return;
+      const box = link.getBoundingClientRect();
+      // Keyboard activation reports no position, so use the link's center.
+      const x = event.detail ? event.clientX : box.left + box.width / 2;
+      const y = event.detail ? event.clientY : box.top + box.height / 2;
+      document.documentElement.style.setProperty("--transition-x", `${x}px`);
+      document.documentElement.style.setProperty("--transition-y", `${y}px`);
+    };
+    document.addEventListener("click", remember, true);
+    return () => document.removeEventListener("click", remember, true);
+  }, []);
+}
+
+/**
+ * Smooth scrolling only for jumps within a page. As a global style it would also animate the
+ * scroll to the top on navigation, sliding the new page around during its transition.
+ */
+function useSmoothAnchors() {
+  useEffect(() => {
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const root = document.documentElement;
+    let timer = 0;
+    const smooth = (event: MouseEvent) => {
+      const link = (event.target as Element).closest?.("a");
+      if (!link?.hash || link.pathname !== location.pathname) return;
+      root.style.scrollBehavior = "smooth";
+      clearTimeout(timer);
+      timer = window.setTimeout(() => root.style.removeProperty("scroll-behavior"), 800);
+    };
+    document.addEventListener("click", smooth, true);
+    return () => {
+      clearTimeout(timer);
+      document.removeEventListener("click", smooth, true);
+    };
+  }, []);
+}
+
+export default function App() {
+  usePageTransitionOrigin();
+  useSmoothAnchors();
+  return <Outlet />;
+}
+
+export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+  if (isRouteErrorResponse(error) && error.status === 404) return <NotFound />;
+  return (
+    <section className="notfound gutter">
+      <h1 className="headline">Something went wrong</h1>
+      <p className="subtle">Please try again in a moment.</p>
+    </section>
   );
 }

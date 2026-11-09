@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /__spa-fallback
+
+Sitemap: https://dillonschultz.design/sitemap.xml

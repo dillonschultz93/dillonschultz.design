@@ -1,0 +1,91 @@
+/* Local versions of Quieto components, styled only through their --qds-component-* tokens. */
+.qds-icon { display: block; flex: none; }
+
+/* Button */
+.qds-button {
+  display: inline-flex; align-items: center; justify-content: center;
+  border: var(--qds-component-button-border-width) solid var(--_border);
+  border-radius: var(--qds-component-button-border-radius);
+  color: var(--_fg); background: var(--_bg);
+  font: inherit; font-weight: var(--qds-component-button-font-weight); line-height: var(--qds-component-button-line-height);
+  text-decoration: none; cursor: pointer;
+  transition: background-color var(--qds-component-button-duration), border-color var(--qds-component-button-duration);
+}
+.qds-button:hover { color: var(--_fg); background: var(--_bg-hover); }
+.qds-button--md { gap: var(--qds-component-button-md-gap); padding: var(--qds-component-button-md-padding-block) var(--qds-component-button-md-padding-inline); font-size: var(--qds-component-button-md-font-size); }
+.qds-button--sm { gap: var(--qds-component-button-sm-gap); padding: var(--qds-component-button-sm-padding-block) var(--qds-component-button-sm-padding-inline); font-size: var(--qds-component-button-sm-font-size); }
+.qds-button--primary { --_fg: var(--qds-component-button-primary-color-content-rest); --_bg: var(--qds-component-button-primary-color-background-rest); --_bg-hover: var(--qds-component-button-primary-color-background-hover); --_border: var(--qds-component-button-primary-color-border-rest); }
+.qds-button--secondary { --_fg: var(--qds-component-button-secondary-color-content-rest); --_bg: var(--qds-component-button-secondary-color-background-rest); --_bg-hover: var(--qds-component-button-secondary-color-background-hover); --_border: var(--qds-component-button-secondary-color-border-rest); }
+.qds-button--ghost { --_fg: var(--qds-component-button-ghost-color-content-rest); --_bg: var(--qds-component-button-ghost-color-background-rest); --_bg-hover: var(--qds-component-button-ghost-color-background-hover); --_border: var(--qds-component-button-ghost-color-border-rest); }
+
+/* Chip */
+.qds-chip {
+  display: inline-flex; align-items: center; gap: var(--qds-component-chip-gap);
+  padding: var(--qds-component-chip-padding-block) var(--qds-component-chip-padding-inline);
+  border: var(--qds-component-chip-border-width) solid var(--_border);
+  border-radius: var(--qds-component-chip-border-radius);
+  color: var(--_fg); background: var(--_bg);
+  font: inherit; font-size: var(--qds-component-chip-font-size); font-weight: var(--qds-component-chip-font-weight); line-height: var(--qds-component-chip-line-height);
+}
+.qds-chip--neutral { --_fg: var(--qds-component-chip-neutral-color-content-rest); --_bg: var(--qds-component-chip-neutral-color-background-rest); --_border: var(--qds-component-chip-neutral-color-border-rest); }
+.qds-chip--info { --_fg: var(--qds-component-chip-info-color-content-rest); --_bg: var(--qds-component-chip-info-color-background-rest); --_border: var(--qds-component-chip-info-color-border-rest); }
+.qds-chip--selectable { --_fg: var(--qds-component-chip-neutral-color-content-rest); --_bg: transparent; --_border: var(--qds-component-chip-selectable-color-border-rest); cursor: pointer; }
+.qds-chip--selectable:hover { background: var(--qds-component-chip-selectable-color-background-hover); }
+.qds-chip--selectable[aria-pressed="true"] { --_fg: var(--qds-component-chip-selected-color-content-rest); --_bg: var(--qds-component-chip-selected-color-background-rest); --_border: var(--qds-component-chip-selected-color-border-rest); }
+.qds-chip--selectable[aria-pressed="true"]:hover { background: var(--qds-component-chip-selected-color-background-hover); }
+
+/* Segmented control */
+.qds-segmented { display: inline-flex; gap: var(--qds-component-segmented-control-gap); padding: var(--qds-component-segmented-control-padding); border-radius: var(--qds-component-segmented-control-border-radius); background: var(--qds-component-segmented-control-color-background-rest); }
+.qds-segment { position: relative; cursor: pointer; }
+.qds-segment input { position: absolute; inset: 0; margin: 0; opacity: 0; cursor: inherit; }
+.qds-segment span {
+  display: block;
+  padding: var(--qds-component-segmented-control-segment-padding-block) var(--qds-component-segmented-control-segment-padding-inline);
+  border-radius: var(--qds-component-segmented-control-segment-border-radius);
+  color: var(--qds-component-segmented-control-segment-color-content-rest);
+  font-size: var(--qds-component-segmented-control-segment-font-size); font-weight: var(--qds-component-segmented-control-segment-font-weight); line-height: var(--qds-component-segmented-control-segment-line-height);
+  transition: background-color var(--qds-component-segmented-control-duration), color var(--qds-component-segmented-control-duration);
+}
+.qds-segment:hover span { color: var(--qds-component-segmented-control-segment-color-content-hover); background: var(--qds-component-segmented-control-segment-color-background-hover); }
+.qds-segment input:checked + span { color: var(--qds-component-segmented-control-segment-color-content-selected); background: var(--qds-component-segmented-control-segment-color-background-selected); box-shadow: var(--qds-component-segmented-control-segment-box-shadow); }
+.qds-segment input:focus-visible + span { outline: var(--qds-semantic-border-primary) solid var(--qds-semantic-color-border-primary); outline-offset: 0.125rem; }
+
+/* Breadcrumbs */
+.qds-breadcrumbs ol { display: flex; flex-wrap: wrap; align-items: center; gap: var(--qds-component-breadcrumbs-gap); margin: 0; padding: 0; list-style: none; font-size: var(--qds-component-breadcrumbs-font-size); line-height: var(--qds-component-breadcrumbs-line-height); }
+.qds-breadcrumbs li { display: flex; align-items: center; gap: var(--qds-component-breadcrumbs-gap); }
+.qds-breadcrumbs a { color: var(--qds-component-breadcrumbs-color-content-rest); }
+.qds-breadcrumbs a:hover { color: var(--qds-component-breadcrumbs-color-content-hover); }
+.qds-breadcrumbs [aria-current] { color: var(--qds-component-breadcrumbs-current-color-content-rest); }
+.qds-breadcrumbs .qds-icon { color: var(--qds-component-breadcrumbs-separator-color-content-rest); }
+
+/* Pagination */
+.qds-pagination { display: flex; flex-wrap: wrap; gap: var(--qds-component-pagination-gap); font-size: var(--qds-component-pagination-font-size); font-weight: var(--qds-component-pagination-font-weight); }
+.qds-pagination a, .qds-pagination span { display: inline-flex; align-items: center; justify-content: center; min-width: var(--qds-component-pagination-min-width); height: var(--qds-component-pagination-height); padding-inline: var(--qds-component-pagination-padding-inline); border-radius: var(--qds-component-pagination-border-radius); color: var(--qds-component-pagination-color-content-rest); text-decoration: none; }
+.qds-pagination a:hover { background: var(--qds-component-pagination-color-background-hover); }
+.qds-pagination a[aria-current] { color: var(--qds-component-pagination-current-color-content-rest); background: var(--qds-component-pagination-current-color-background-rest); }
+.qds-pagination .is-disabled { opacity: 0.4; }
+
+/* Accordion */
+.qds-accordion-item { border-block: var(--qds-component-accordion-border-width) solid var(--qds-component-accordion-color-border-rest); }
+.qds-accordion-item summary { display: flex; align-items: center; justify-content: space-between; gap: var(--qds-component-accordion-trigger-gap); padding: var(--qds-component-accordion-trigger-padding-block) var(--qds-component-accordion-trigger-padding-inline); color: var(--qds-component-accordion-trigger-color-content-rest); font-size: var(--qds-component-accordion-trigger-font-size); font-weight: var(--qds-component-accordion-trigger-font-weight); line-height: var(--qds-component-accordion-trigger-line-height); list-style: none; cursor: pointer; }
+.qds-accordion-item summary::-webkit-details-marker { display: none; }
+.qds-accordion-item summary:hover { background: var(--qds-component-accordion-trigger-color-background-hover); }
+.qds-accordion-item summary .qds-icon { transition: transform var(--qds-component-accordion-duration); }
+.qds-accordion-item[open] summary .qds-icon { transform: rotate(180deg); }
+.qds-accordion-panel { padding: var(--qds-component-accordion-panel-padding-block) var(--qds-component-accordion-panel-padding-inline); color: var(--qds-component-accordion-panel-color-content-rest); font-size: var(--qds-component-accordion-panel-font-size); line-height: var(--qds-component-accordion-panel-line-height); }
+
+/* Drawer */
+.qds-drawer { width: min(20rem, 100vw - 3rem); max-width: none; height: 100dvh; max-height: none; margin: 0 0 0 auto; padding: 0; overflow: hidden; border: var(--qds-component-modal-border-width) solid var(--qds-component-modal-color-border-rest); border-block: 0; border-inline-end: 0; color: var(--qds-component-modal-color-content-rest); background: var(--qds-component-modal-color-background-rest); box-shadow: var(--qds-component-modal-box-shadow); }
+.qds-drawer::backdrop { background: var(--qds-component-modal-backdrop-color-background-rest); opacity: var(--qds-component-modal-backdrop-opacity); }
+.qds-drawer[open] { animation: drawer-in var(--qds-component-modal-duration) ease-out; }
+@keyframes drawer-in { from { transform: translateX(100%); } }
+.qds-drawer-surface { position: relative; display: flex; flex-direction: column; height: 100%; overflow: hidden auto; }
+.qds-drawer-header { display: flex; align-items: center; justify-content: space-between; gap: var(--qds-component-modal-gap); padding: var(--qds-component-modal-padding); }
+.qds-drawer-header h2 { margin: 0; font-size: var(--qds-component-modal-header-font-size); font-weight: var(--qds-component-modal-header-font-weight); line-height: var(--qds-component-modal-header-line-height); }
+.qds-drawer-close { display: inline-flex; padding: var(--qds-spacing-200); border: 0; border-radius: var(--qds-semantic-radius-default); color: inherit; background: none; cursor: pointer; }
+.qds-drawer-close:hover { background: var(--qds-semantic-color-background-subtle); }
+.qds-drawer-body { position: relative; flex: 1; padding: 0 var(--qds-component-modal-padding) var(--qds-component-modal-padding); }
+
+:is(.qds-button, .qds-chip--selectable, .qds-pagination a, .qds-accordion-item summary, .qds-drawer-close):focus-visible { outline: var(--qds-semantic-border-primary) solid var(--qds-semantic-color-border-primary); outline-offset: 0.125rem; }
+
+@media (prefers-reduced-motion: reduce) { .qds-drawer[open] { animation: none; } }
