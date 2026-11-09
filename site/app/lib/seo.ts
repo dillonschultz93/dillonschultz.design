@@ -6,9 +6,7 @@ const SITE_NAME = "Dillon Schultz";
  * scripts/og-images.mjs, which reads the og:image below to know which pages those are.
  * Delete an entry here to switch that page to a generated card.
  */
-const DESIGNED_CARDS: Record<string, { src: string; width: number; height: number; alt: string }> = {
-  "/projects/pasta-design-system": { src: "/og-image-pasta-design-system.jpg", width: 1200, height: 630, alt: "Pasta Design System: recipe cards, a meal planner and color palettes from the Yummly app." },
-};
+const DESIGNED_CARDS: Record<string, { src: string; width: number; height: number; alt: string }> = {};
 
 /** Where a page's generated card is written: /projects/foo becomes /og/projects/foo.png. */
 const generatedCard = (path: string) => ({ src: `/og${path === "/" ? "/index" : path}.png`, width: 1200, height: 630 });
