@@ -4,7 +4,7 @@ import { Link, NavLink } from "./TransitionLink";
 import { Blob } from "./Blob";
 import { Button } from "./ui/Button";
 import { Drawer } from "./ui/Drawer";
-import { ThemeControl } from "./ThemeControl";
+import { ThemeToggle } from "./ThemeToggle";
 
 const SOCIAL = [
   { label: "Instagram", href: "https://www.instagram.com/dill.schultz/" },
@@ -36,15 +36,13 @@ export function SiteHeader() {
       </Link>
       <nav className="site-nav" aria-label="Main">
         <NavLinks />
-        <ThemeControl />
       </nav>
-      <Button className="menu-button" variant="secondary" size="sm" aria-haspopup="dialog" onClick={() => setMenuOpen(true)}>Menu</Button>
+      <div className="header-actions">
+        <ThemeToggle />
+        <Button className="menu-button" variant="secondary" size="sm" aria-haspopup="dialog" onClick={() => setMenuOpen(true)}>Menu</Button>
+      </div>
       <Drawer open={menuOpen} onClose={() => setMenuOpen(false)} heading="Menu">
         <nav className="drawer-nav" aria-label="Main"><NavLinks /></nav>
-        <div className="drawer-group">
-          <span className="meta">Theme</span>
-          <ThemeControl />
-        </div>
         <div className="drawer-group drawer-social">
           <span className="meta">Elsewhere</span>
           {SOCIAL.map((s) => <a key={s.href} href={s.href}>{s.label}</a>)}

@@ -2,7 +2,12 @@
 html { color-scheme: light dark; -webkit-text-size-adjust: 100%; }
 :root[data-theme="light"] { color-scheme: light; }
 :root[data-theme="dark"] { color-scheme: dark; }
+/* A full-height column, so main grows and the footer sits at the bottom on short pages. */
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
   margin: 0;
   color: var(--qds-semantic-color-content-default);
   background: var(--qds-semantic-color-background-default);
@@ -11,6 +16,7 @@ body {
   font-weight: var(--qds-semantic-typography-body-font-weight);
   line-height: var(--qds-semantic-typography-body-line-height);
 }
+main { flex: 1 0 auto; }
 h1, h2, h3, h4, p, dl, dd, figure, blockquote { margin: 0; }
 img, svg { display: block; }
 img { max-width: 100%; height: auto; }
@@ -52,6 +58,22 @@ a:hover .text-link .qds-icon, a.text-link:hover .qds-icon { transform: translate
 .brand:hover { color: inherit; }
 .mark { width: 2rem; height: 2rem; flex: none; }
 .site-nav { display: none; align-items: center; gap: var(--qds-spacing-600); font-size: var(--qds-semantic-typography-label-font-size); font-weight: var(--qds-semantic-typography-label-font-weight); }
+.site-nav { margin-left: auto; }
+.header-actions { display: flex; align-items: center; gap: var(--qds-spacing-200); }
+
+/* Theme toggle: a ghost icon button, as in the QDS docs header. */
+.theme-toggle { position: relative; display: inline-grid; place-items: center; margin: 0; padding: var(--qds-component-button-md-padding-block); color: var(--qds-semantic-color-content-subtle); background: transparent; border: 0; border-radius: var(--qds-component-button-border-radius); cursor: pointer; transition: background-color var(--qds-component-button-duration), color var(--qds-component-button-duration); }
+.theme-toggle:hover { color: var(--qds-semantic-color-content-default); background: var(--qds-component-button-ghost-color-background-hover); }
+.theme-toggle:active { background: var(--qds-component-button-ghost-color-background-active); }
+.theme-toggle:focus-visible { outline: var(--qds-semantic-border-primary) solid var(--qds-semantic-color-border-primary); outline-offset: 0.125rem; }
+.theme-toggle-icon { display: inline-flex; }
+/* The icon shows the theme a press switches to. Driven by data-theme so it's right before hydration. */
+.when-dark, :root[data-theme="dark"] .when-light { display: none; }
+:root[data-theme="dark"] .when-dark { display: inline-flex; }
+.tooltip { position: absolute; top: calc(100% + var(--qds-component-tooltip-gap)); left: 50%; translate: -50% 0; z-index: 2; padding: var(--qds-component-tooltip-padding-block) var(--qds-component-tooltip-padding-inline); font-size: var(--qds-component-tooltip-font-size); line-height: var(--qds-component-tooltip-line-height); white-space: nowrap; color: var(--qds-component-tooltip-color-content-rest); background: var(--qds-component-tooltip-color-background-rest); border-radius: var(--qds-component-tooltip-border-radius); pointer-events: none; opacity: 0; transition: opacity var(--qds-component-tooltip-duration); }
+.theme-toggle:hover .tooltip, .theme-toggle:focus-visible .tooltip { opacity: 1; }
+@media (prefers-reduced-motion: reduce) { .theme-toggle, .tooltip { transition: none; } }
+
 .site-nav a, .drawer-nav a { color: var(--qds-semantic-color-content-default); text-decoration: none; }
 .site-nav a:hover, .drawer-nav a:hover { color: var(--qds-semantic-color-content-primary-hover); }
 .site-nav a[aria-current], .drawer-nav a[aria-current] { color: var(--qds-semantic-color-content-primary-rest); text-decoration: underline; text-underline-offset: 0.25em; }
