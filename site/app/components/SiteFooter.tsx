@@ -6,7 +6,7 @@ export function SiteFooter() {
     <footer className="site-footer gutter">
       <div className="footer-signoff">
         <p className="headline">Thanks for stopping by!</p>
-        <p className="subtle">My résumé has the long version, and LinkedIn is the easiest place to say hello.</p>
+        <p className="subtle">Check out my résumé if you haven't yet, and LinkedIn is the easiest place to say hello.</p>
         <div className="actions">
           <Button href="/resume">My résumé</Button>
           <Button href="https://linkedin.com/in/dillonschultz" variant="secondary">My LinkedIn</Button>

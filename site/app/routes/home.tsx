@@ -53,15 +53,11 @@ export default function Home({ loaderData }: Route.ComponentProps) {
         <div className="hero-copy">
           <h1 className="display">Hey, I'm Dillon!</h1>
           <p className="title">Design engineer with 8+ years spanning design systems, component-driven UI, and editorial design.</p>
-          <p className="subtle">I build Figma component libraries and token architectures, ship token-driven React components, and prototype with Claude and Cursor.</p>
+          <p className="subtle">I build Figma component libraries and token architectures, ship token-driven components, and prototype with agentic workflows.</p>
           <div className="actions">
             <Button href="/resume">My résumé</Button>
             <Button href="https://linkedin.com/in/dillonschultz" variant="secondary">My LinkedIn</Button>
           </div>
-          <dl className="proof">
-            <div><dt className="headline">8+</dt><dd className="meta">years across design systems, component-driven UI and editorial design</dd></div>
-            <div><dt className="headline">63%</dt><dd className="meta">smaller iOS codebase after a SwiftUI component migration</dd></div>
-          </dl>
         </div>
       </section>
       <section id="work" className="section gutter">
@@ -74,7 +70,7 @@ export default function Home({ loaderData }: Route.ComponentProps) {
       {articles.length ? (
         <section className="section gutter">
           <div className="section-heading">
-            <h2 className="headline">Latest writing</h2>
+            <h2 className="headline">Some thoughts I've had</h2>
             <Link className="text-link" to="/blog">All writing <Icon name="arrow-right" /></Link>
           </div>
           <div className="article-list">{articles.map((a) => <ArticleRow key={a.slug} article={a} />)}</div>
