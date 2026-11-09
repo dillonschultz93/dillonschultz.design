@@ -4,3 +4,5 @@ node_modules
 /public/blob.js
 .env
 .DS_Store
+.vercel
+.env*
