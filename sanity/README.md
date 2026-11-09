@@ -12,6 +12,8 @@ The content management backend for [dillonschultz.design](https://dillonschultz.
 | Schema | Type | Description |
 |--------|------|-------------|
 | `post` | Document | Project case studies — title, description, slug, main image, tags, published date, and rich text body |
+| `article` | Document | Writing — title, slug, format (note or essay), excerpt, published date, tags, and rich text body |
+| `resume` | Document | The résumé — header and summary, PDF, work and volunteer experience, education, projects, and skills |
 | `author` | Document | Author profiles — name, slug, image, and bio |
 | `blockContent` | Array | Rich text definition — headings (H1–H6), blockquotes, lists, inline links, bold/emphasis, and images with caption and alt text |
 
